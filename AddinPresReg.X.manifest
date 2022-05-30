@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+
+  <assemblyIdentity name="AddinPresReg" version="1.0.0.0"></assemblyIdentity>
+
+  <clrClass clsid="{85e5695a-40da-4dcc-881d-859f03514ace}" progid="AddinPresReg.StandardAddInServer" threadingModel="Both" name="AddinPresReg.StandardAddInServer" runtimeVersion=""></clrClass>
+
+  <file name="AddinPresReg.dll" hashalg="SHA1"></file>
+
+</assembly>

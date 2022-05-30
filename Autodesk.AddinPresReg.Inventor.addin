@@ -1,0 +1,14 @@
+<Addin Type="Standard">
+  <!--Created for Autodesk Inventor Version 26.0-->
+  <ClassId>{85e5695a-40da-4dcc-881d-859f03514ace}</ClassId>
+  <ClientId>{85e5695a-40da-4dcc-881d-859f03514ace}</ClientId>
+  <DisplayName>AddinPresReg</DisplayName>
+  <Description>AddinPresReg</Description>
+  <Assembly>E:\Регулятор давления\AddinPresReg\bin\Debug\AddinPresReg.dll</Assembly>
+  <LoadOnStartUp>1</LoadOnStartUp>
+  <UserUnloadable>1</UserUnloadable>
+  <Hidden>0</Hidden>
+  <SupportedSoftwareVersionGreaterThan>25..</SupportedSoftwareVersionGreaterThan>
+  <DataVersion>1</DataVersion>
+  <UserInterfaceVersion>1</UserInterfaceVersion>
+</Addin>
