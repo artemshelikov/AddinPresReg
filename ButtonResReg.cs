@@ -35,7 +35,7 @@ namespace AddinPresReg
             //Создание иконок для кнопки
             m_ButtonIcons = new ButtonIcons(
             InvAddIn.Properties.Resources._01Standart,
-            InvAddIn.Properties.Resources.iconBig2, InvAddIn.Properties.Resources.iconBig2);
+            InvAddIn.Properties.Resources.iconBig2, InvAddIn.Properties.Resources.iconBig3);
             //m_ButtonNew = new ButtonIcons(InvAddIn.Properties.Resources.nip,
             //InvAddIn.Properties.Resources.nip);
             //Создание дифинции кнопки и добавление её на панель
@@ -46,14 +46,14 @@ namespace AddinPresReg
         {
             //Создания дефинции кнопки
             m_ButtonDef = m_InvApp.CommandManager.ControlDefinitions.AddButtonDefinition(
-            "Ниппельное соединение", "MyFirstMessageCmd", Inventor.CommandTypesEnum.kQueryOnlyCmdType,
-            "", "Ниппельное соединение", "Создать", m_ButtonIcons.IconStandard,
+            "Регулятор давления", "MyFirstMessageCmd", Inventor.CommandTypesEnum.kQueryOnlyCmdType,
+            "", "Регулятор давления", "Создать", m_ButtonIcons.IconStandard,
             m_ButtonIcons.IconLarge);
 
             //Редактирование окна при наведении на кнопку
-            m_ButtonDef.ProgressiveToolTip.Title = "khjgjhkgkjhgkjgjgkjhgjhgkhj";
-            m_ButtonDef.ProgressiveToolTip.Description = "Проектирование ниппельных соединений при конструировании трупопроводов.";
-            m_ButtonDef.ProgressiveToolTip.ExpandedDescription = "Можно проектировать соединения с ниппелями по наружному конусу, шаровыми, коническими. Ниппели и гайки используемые в соединении доступны в Библиотеке компонентов.";
+            m_ButtonDef.ProgressiveToolTip.Title = "Регулятор давления";
+            m_ButtonDef.ProgressiveToolTip.Description = "Проектирование регулятора давления.";
+            m_ButtonDef.ProgressiveToolTip.ExpandedDescription = "Проектирование регулятора давления с возможностью изменения параметров деталей в зависимости от необходимости.";
             m_ButtonDef.ProgressiveToolTip.Image = m_ButtonIcons.IconDisplay;
 
             //Добавление кнопки на панель
@@ -112,7 +112,7 @@ namespace AddinPresReg
             {
                 RibbonZeroDoc = InvApp.UserInterfaceManager.Ribbons["Assembly"];
                 RibbonTabFirst = RibbonZeroDoc.RibbonTabs["id_TabDesign"];
-                this.RibbonPanelFirst = RibbonTabFirst.RibbonPanels.Add("Ниппельные соединения", "id_PanelMessage2", "", "id_PanelA_DesignFrame", true);
+                this.RibbonPanelFirst = RibbonTabFirst.RibbonPanels.Add("Регуляторы", "id_PanelMessage2", "", "id_PanelA_DesignFrame", true);
                 
                 //this.RibbonPanelFirst..Move(2, 2);
                 //this.RibbonPanelFirst = this.RibbonTabFirst.RibbonPanels["id_PanelA_DesignFasten"];

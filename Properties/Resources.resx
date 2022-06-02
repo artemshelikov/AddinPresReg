@@ -118,13 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="01Standart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\01Standart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Пробка 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Пробка 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Угольник 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Угольник 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Корпус 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Корпус 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconBig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconBig2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Шток 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Шток 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Винт 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Винт 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Кольцо1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Кольцо1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Крышка 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Крышка 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Штифт1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Штифт1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="01Standart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\01Standart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Сборка" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Сборка.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Втулка 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Втулка 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconBig3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconBig3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

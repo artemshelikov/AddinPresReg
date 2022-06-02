@@ -53,26 +53,28 @@ namespace InvAddIn
             InitializeComponent();
 
             //Инициализация списков элементов
-            comboBox1.Text = Convert.ToString(RGasPr);
-            this.comboBox1.Items.AddRange(new object[] { "10,0", "9,0", "11,0", "12,0" });
-            comboBox2.Text = Convert.ToString(RKlap);
+            comboBox1.Text = Convert.ToString(DGasPr);
+            this.comboBox1.Items.AddRange(new object[] { "20,0", "18,0", "22,0", "24,0" });
+            comboBox2.Text = Convert.ToString(DKlap);
             this.comboBox2.Items.AddRange(new object[] { "24,0", "25,0", "26,0", "27,5", "28,0" });
-            comboBox3.Text = Convert.ToString(RKolco);
-            this.comboBox3.Items.AddRange(new object[] { "38,0", "40,0", "42,0", "44,0" });
-            comboBox4.Text = Convert.ToString(ShirFlanca);
-            this.comboBox4.Items.AddRange(new object[] { "11,5", "12,0", "12,5", "13,0", "13,5", "14,0", "14,5", "15,0" });
+            comboBox3.Text = Convert.ToString(DKolca);
+            this.comboBox3.Items.AddRange(new object[] { "76,0", "80,0", "84,0", "88,0" });
+            comboBox4.Text = Convert.ToString(DFlancaVnesh);
+            this.comboBox4.Items.AddRange(new object[] { "115,0", "116,0", "117,0", "118,0", "119,0", "120,0", "121,0", "122,0" });
+            comboBox32.Text = Convert.ToString(DFlancaVnutr);
+            this.comboBox32.Items.AddRange(new object[] { "90,0", "91,0", "92,0", "93,0", "94,0", "95,0", "96,0", "97,0" });
             comboBox5.Text = Convert.ToString(HKorp);
             this.comboBox5.Items.AddRange(new object[] { "75,0" });
-            comboBox6.Text = Convert.ToString(ROsn);
-            this.comboBox6.Items.AddRange(new object[] { "31,5", "32,0", "32,5", "33,0", "33,5", "34,0", "34,5", "35,0" });
+            comboBox6.Text = Convert.ToString(DOsn);
+            this.comboBox6.Items.AddRange(new object[] { "63,0", "64,0", "65,0", "66,0", "67,0", "68,0", "69,0", "70,0" });
             comboBox7.Text = Convert.ToString(RVtullka);
             this.comboBox7.Items.AddRange(new object[] { "7,5", "8,0", "8,5", "9,0", "9,5", "10,0" });
             comboBox8.Text = Convert.ToString(RVtullkaSmall);
             this.comboBox8.Items.AddRange(new object[] { "5,0", "5,5", "6,0", "6,5", "7,0", "7,5" });
             comboBox9.Text = Convert.ToString(HFlanca);
             this.comboBox9.Items.AddRange(new object[] { "12,0", "15,0", "18,0", "20,0" });
-            comboBox10.Text = Convert.ToString(ROtvTr);
-            this.comboBox10.Items.AddRange(new object[] { "16,615", "13,285", "10,612" });
+            comboBox10.Text = Convert.ToString(DOtvTr);
+            this.comboBox10.Items.AddRange(new object[] { "33,23", "25,57", "21,224" });
             comboBox11.Text = Convert.ToString(DOtvBolt);
             this.comboBox11.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0", "14,0" });
             comboBox12.Text = Convert.ToString(HFlancaKr);
@@ -143,8 +145,8 @@ namespace InvAddIn
 
         }
 
-        private static double RGasPr = 10, ROsn = 31.5, RKlap = 24, RVtullka = 7.5, RVtullkaSmall = 5, RKolco = 40,
-            ShirFlanca = 11.5, HFlanca = 12, HKorp = 75, ROtvTr = 16.615, DOtvBolt = 8, HFlancaKr = 10, DVint = 16,
+        private static double DGasPr = 20, DOsn = 63, DKlap = 48, RVtullka = 7.5, RVtullkaSmall = 5, DKolca = 80,
+            DFlancaVnesh = 115, DFlancaVnutr = 90, HFlanca = 12, HKorp = 75, DOtvTr = 33.23, DOtvBolt = 8, HFlancaKr = 10, DVint = 16,
             ShirStKr = 5, HKr = 75, HGorlKr = 11, HVint = 63, HRezbVint = 37, DShtift = 8, HShtift = 75, HVtulka = 10,
             HYgol = 22, ShirYgol = 18, LYgol = 70, LTrYgol = 52, DKolco = 5.8, HProbka = 20, HRezbProbka = 14,
             DShtok = 5, LShtok = 65, LShtokRuchka = 15;
@@ -640,6 +642,11 @@ namespace InvAddIn
 
         }
 
+        private void comboBox32_TextChanged(object sender, EventArgs e)
+        {
+            DFlancaVnutr = Convert.ToDouble(comboBox32.Text);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Inventor Part Document|*.ipt";
@@ -908,7 +915,7 @@ namespace InvAddIn
 
         private void comboBox10_TextChanged(object sender, EventArgs e)
         {
-            ROtvTr = Convert.ToDouble(comboBox10.Text);
+            DOtvTr = Convert.ToDouble(comboBox10.Text);
         }
 
         private void comboBox7_TextChanged(object sender, EventArgs e)
@@ -918,7 +925,7 @@ namespace InvAddIn
 
         private void comboBox6_TextChanged(object sender, EventArgs e)
         {
-            ROsn = Convert.ToDouble(comboBox6.Text);
+            DOsn = Convert.ToDouble(comboBox6.Text);
         }
 
         private void comboBox5_TextChanged(object sender, EventArgs e)
@@ -928,22 +935,22 @@ namespace InvAddIn
 
         private void comboBox4_TextChanged(object sender, EventArgs e)
         {
-            ShirFlanca = Convert.ToDouble(comboBox4.Text);
+            DFlancaVnesh = Convert.ToDouble(comboBox4.Text);
         }
 
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
-            RKolco = Convert.ToDouble(comboBox3.Text);
+            DKolca = Convert.ToDouble(comboBox3.Text);
         }
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-            RKlap = Convert.ToDouble(comboBox2.Text);
+            DKlap = Convert.ToDouble(comboBox2.Text);
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
-            RGasPr = Convert.ToDouble(comboBox1.Text);
+            DGasPr = Convert.ToDouble(comboBox1.Text);
         }
 
         private void click(ObjectsEnumerator JustSelectedEntities,
@@ -971,16 +978,17 @@ namespace InvAddIn
 
 
             //Перевод размеров в см
-            RGasPr = RGasPr / 10;
-            ROsn = ROsn / 10;
-            RKlap = RKlap / 10;
+            DGasPr = DGasPr / 2 / 10;
+            DOsn = DOsn / 2 / 10;
+            DKlap = DKlap / 2 / 10;
             RVtullka = RVtullka / 10;
             RVtullkaSmall = RVtullkaSmall / 10;
-            RKolco = RKolco / 10;
-            ShirFlanca = ShirFlanca / 10;
+            DKolca = DKolca / 2 / 10;
+            DFlancaVnesh = DFlancaVnesh/2 / 10;
+            DFlancaVnutr = DFlancaVnutr / 2 / 10;
             HFlanca = HFlanca / 10;
             HKorp = HKorp / 10;
-            ROtvTr = ROtvTr / 10;
+            DOtvTr = DOtvTr / 2 / 10;
             DOtvBolt = DOtvBolt / 2 / 10;
             HFlancaKr = HFlancaKr / 10;
             DVint = DVint / 2 / 10;
@@ -1057,30 +1065,30 @@ namespace InvAddIn
             oPartDoc["13. Корпус"].DisplayName = "13. Корпус";
             PlanarSketch oSketch21 = oCompDef["13. Корпус"].Sketches.Add(oCompDef["13. Корпус"].WorkPlanes[3]);
 
-            point[0] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr, 1.4), false);
-            point[1] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKlap, 1.4), false);
-            point[2] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKlap, 0.4), false);
-            point[3] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn - 0.4, 0.4), false);
-            point[4] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn - 0.4, 0), false);
-            point[5] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn, 0.4), false);
-            point[6] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.05, 5), false);
-            point[7] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.35, HKorp - HFlanca), false);
-            point[8] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.43 + ShirFlanca, HKorp - HFlanca), false);
-            point[9] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.43 + ShirFlanca, HKorp), false);
-            point[10] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.43, HKorp), false);
-            point[11] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.43, HKorp - 0.3), false);
-            point[12] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKolco, HKorp - 0.3), false);
-            point[13] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKolco, HKorp - 0.6), false);
-            point[14] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKolco - DKolco, HKorp - 0.6), false);
-            point[15] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d((RKolco - DKolco) * 0.96, HKorp - 0.2), false);
-            point[16] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn, HKorp - 0.2), false);
-            point[17] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn, HKorp - 0.9), false);
-            point[18] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 0.67, HKorp - 1.5), false);
+            point[0] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr, 1.4), false);
+            point[1] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKlap, 1.4), false);
+            point[2] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKlap, 0.4), false);
+            point[3] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn - 0.4, 0.4), false);
+            point[4] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn - 0.4, 0), false);
+            point[5] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn, 0.4), false);
+            point[6] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.05, 5), false);
+            point[7] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.35, HKorp - HFlanca), false);
+            point[8] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DFlancaVnesh, HKorp - HFlanca), false);
+            point[9] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DFlancaVnesh, HKorp), false);
+            point[10] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DFlancaVnutr, HKorp), false);
+            point[11] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DFlancaVnutr, HKorp - 0.3), false);
+            point[12] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKolca, HKorp - 0.3), false);
+            point[13] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKolca, HKorp - 0.6), false);
+            point[14] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKolca - DKolco, HKorp - 0.6), false);
+            point[15] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d((DKolca - DKolco) * 0.96, HKorp - 0.2), false);
+            point[16] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn, HKorp - 0.2), false);
+            point[17] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn, HKorp - 0.9), false);
+            point[18] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 0.67, HKorp - 1.5), false);
             point[19] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RVtullka, HKorp - 1.5), false);
             point[20] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RVtullka, HKorp - 1.7), false);
             point[21] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RVtullkaSmall, HKorp - 1.7), false);
             point[22] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RVtullkaSmall, 5), false);
-            point[23] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr, 5), false);
+            point[23] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr, 5), false);
             point[24] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 0), false);
             point[25] = oSketch21.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 5), false);
             lines[0] = oSketch21.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1118,12 +1126,12 @@ namespace InvAddIn
 
             PlanarSketch oSketch22 = oCompDef["13. Корпус"].Sketches.Add(oCompDef["13. Корпус"].WorkPlanes[3]);
             Transaction oTrans2 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample2");
-            point[0] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr, HRezbProbka), false);
-            point[1] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKlap + 0.1, HRezbProbka), false);
-            point[2] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RKlap + 0.1, HRezbProbka + 0.6), false);
-            point[3] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr + 0.25, HRezbProbka + 0.6), false);
-            point[4] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr + 0.15, HRezbProbka + 0.5), false);
-            point[5] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr, HRezbProbka + 0.5), false);
+            point[0] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr, HRezbProbka), false);
+            point[1] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKlap + 0.1, HRezbProbka), false);
+            point[2] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DKlap + 0.1, HRezbProbka + 0.6), false);
+            point[3] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr + 0.25, HRezbProbka + 0.6), false);
+            point[4] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr + 0.15, HRezbProbka + 0.5), false);
+            point[5] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr, HRezbProbka + 0.5), false);
             point[6] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 0), false);
             point[7] = oSketch22.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch22.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1144,15 +1152,15 @@ namespace InvAddIn
             oWorkPlane3.Visible = false;
             PlanarSketch oSketch23 = oCompDef["13. Корпус"].Sketches.Add(oWorkPlane3, false);
             Transaction oTrans3 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample2");
-            point[0] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.67, ROsn * 0.79), false);
-            point[1] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.67, -ROsn * 0.79), false);
-            point[2] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 1.67, -ROsn * 0.79), false);
-            point[3] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 1.67, ROsn * 0.79), false);
+            point[0] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.67, DOsn * 0.79), false);
+            point[1] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.67, -DOsn * 0.79), false);
+            point[2] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 1.67, -DOsn * 0.79), false);
+            point[3] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 1.67, DOsn * 0.79), false);
             point[4] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 0), false);
-            point[5] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 0.61, ROsn * 0.79), false);
-            point[6] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 0.61, -ROsn * 0.79), false);
-            point[7] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 0.61, ROsn * 0.79), false);
-            point[8] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 0.61, -ROsn * 0.79), false);
+            point[5] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 0.61, DOsn * 0.79), false);
+            point[6] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 0.61, -DOsn * 0.79), false);
+            point[7] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 0.61, DOsn * 0.79), false);
+            point[8] = oSketch23.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 0.61, -DOsn * 0.79), false);
             lines[0] = oSketch23.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch23.SketchLines.AddByTwoPoints(point[1], point[6]);
             lines[2] = oSketch23.SketchLines.AddByTwoPoints(point[5], point[0]);
@@ -1182,9 +1190,9 @@ namespace InvAddIn
 
             PlanarSketch oSketch24 = oCompDef["13. Корпус"].Sketches.Add(oCompDef["13. Корпус"].WorkPlanes[3]);
             Transaction oTrans4 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample4");
-            point[0] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 1.67, 4), false);
-            point[1] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-ROsn * 1.67, ROtvTr + 4), false);
-            point[2] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-1.5, ROtvTr * 0.87 + 4), false);
+            point[0] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 1.67, 4), false);
+            point[1] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-DOsn * 1.67, DOtvTr + 4), false);
+            point[2] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-1.5, DOtvTr * 0.87 + 4), false);
             point[3] = oSketch24.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(-1.5, 4), false);
             lines[0] = oSketch24.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch24.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1198,11 +1206,11 @@ namespace InvAddIn
 
             PlanarSketch oSketch25 = oCompDef["13. Корпус"].Sketches.Add(oCompDef["13. Корпус"].WorkPlanes[3]);
             Transaction oTrans5 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample5");
-            point[0] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.67, 4), false);
-            point[1] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.67, ROtvTr + 4), false);
-            point[2] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(ROsn * 1.67 - 3.2, ROtvTr * 0.87 + 4), false);
-            point[3] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(1.5, ROtvTr * 0.54 + 4), false);
-            point[4] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, ROtvTr * 0.54 + 4), false);
+            point[0] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.67, 4), false);
+            point[1] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.67, DOtvTr + 4), false);
+            point[2] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DOsn * 1.67 - 3.2, DOtvTr * 0.87 + 4), false);
+            point[3] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(1.5, DOtvTr * 0.54 + 4), false);
+            point[4] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, DOtvTr * 0.54 + 4), false);
             point[5] = oSketch25.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 4), false);
             lines[0] = oSketch25.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch25.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1222,10 +1230,10 @@ namespace InvAddIn
             PlanarSketch oSketch26 = oCompDef["13. Корпус"].Sketches.Add(oWorkPlane4, false);
             Transaction oTrans6 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample6");
             point[0] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr * 0.75, RGasPr * 1.299), false);
-            point[2] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr * 1.05, RGasPr * 1.819), false);
-            point[3] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr * 1.05, -RGasPr * 1.819), false);
-            point[4] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(RGasPr * 0.75, -RGasPr * 1.299), false);
+            point[1] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr * 0.75, DGasPr * 1.299), false);
+            point[2] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr * 1.05, DGasPr * 1.819), false);
+            point[3] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr * 1.05, -DGasPr * 1.819), false);
+            point[4] = oSketch26.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(DGasPr * 0.75, -DGasPr * 1.299), false);
             lines[0] = oSketch26.SketchLines.AddByTwoPoints(point[1], point[2]);
             lines[1] = oSketch26.SketchLines.AddByTwoPoints(point[3], point[4]);
             arcs[0] = oSketch26.SketchArcs.AddByCenterStartEndPoint(oTransGeom["13. Корпус"].CreatePoint2d(
@@ -1235,7 +1243,7 @@ namespace InvAddIn
             oTrans6.End();
             Profile oProfile26 = (Profile)oSketch26.Profiles.AddForSolid();
             ExtrudeFeature oExtrudeDef6 = oCompDef["13. Корпус"].Features.ExtrudeFeatures.AddByDistanceExtent(
-            /*Эскиз*/oProfile26,/*Длина в см*/ROtvTr * 0.87 + 2,/*Направление вдоль оси*/
+            /*Эскиз*/oProfile26,/*Длина в см*/DOtvTr * 0.87 + 2,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kPositiveExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kCutOperation,/*Эскиз*/oProfile26);
 
@@ -1255,8 +1263,8 @@ namespace InvAddIn
 
             PlanarSketch oSketch28 = oCompDef["13. Корпус"].Sketches.Add(oCompDef["13. Корпус"].WorkPlanes[1]);
             Transaction oTrans8 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample8");
-            point[0] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4, ROsn * 1.05), false);
-            point[1] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4.515, ROsn * 1.05), false);
+            point[0] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4, DOsn * 1.05), false);
+            point[1] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4.515, DOsn * 1.05), false);
             point[2] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4.425, 1.6), false);
             point[3] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4.3, 1.475), false);
             point[4] = oSketch28.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(4, 1.475), false);
@@ -1293,7 +1301,7 @@ namespace InvAddIn
             oWorkPlane6.Visible = false;
             PlanarSketch oSketch30 = oCompDef["13. Корпус"].Sketches.Add(oWorkPlane6, false);
             Transaction oTrans10 = ThisApplication.TransactionManager.StartTransaction(ThisApplication.ActiveDocument, "Create Sample10");
-            point[0] = oSketch30.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, ROsn * 1.43 + DOtvBolt + 0.05), false);
+            point[0] = oSketch30.SketchPoints.Add(oTransGeom["13. Корпус"].CreatePoint2d(0, DFlancaVnutr + DOtvBolt + 0.05), false);
             Окружность[0] = oSketch30.SketchCircles.AddByCenterRadius(point[0], DOtvBolt);
             oTrans10.End();
             Profile oProfile30 = (Profile)oSketch30.Profiles.AddForSolid();
@@ -1312,26 +1320,26 @@ namespace InvAddIn
             Имя_нового_документа("8. Крышка");
             oPartDoc["8. Крышка"].DisplayName = "8. Крышка";
             PlanarSketch oSketch31 = oCompDef["8. Крышка"].Sketches.Add(oCompDef["8. Крышка"].WorkPlanes[3]);
-            point[0] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.43, 0), false);
-            point[1] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.43, 0.7), false);
-            point[2] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.43 + ShirFlanca, 0.7), false);
-            point[3] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.43 + ShirFlanca, HFlancaKr + 0.7), false);
-            point[4] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.03, HFlancaKr + 0.7), false);
-            point[5] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 0.86, HKr - HGorlKr), false);
+            point[0] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DFlancaVnutr, 0), false);
+            point[1] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DFlancaVnutr, 0.7), false);
+            point[2] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DFlancaVnesh, 0.7), false);
+            point[3] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DFlancaVnesh, HFlancaKr + 0.7), false);
+            point[4] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.03, HFlancaKr + 0.7), false);
+            point[5] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.86, HKr - HGorlKr), false);
             point[6] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DVint + ShirStKr, HKr - HGorlKr), false);
             point[7] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DVint + ShirStKr, HKr), false);
             point[8] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DVint, HKr), false);
             point[9] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DVint, HKr - HGorlKr - ShirStKr), false);
-            point[10] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 0.86 - ShirStKr, HKr - HGorlKr - ShirStKr), false);
-            point[11] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.03 - ShirStKr, 1.4), false);
-            point[12] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 0.95, 1.4), false);
-            point[13] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 0.95, 0.3), false);
-            point[14] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14, 0.3), false);
-            point[15] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14, 0.2), false);
-            point[16] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14 + 0.1, 0.2), false);
-            point[17] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14 + 0.2, 0.1), false);
-            point[18] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14 + 0.3, 0.1), false);
-            point[19] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(ROsn * 1.14 + 0.3, 0), false);
+            point[10] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.86 - ShirStKr, HKr - HGorlKr - ShirStKr), false);
+            point[11] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.03 - ShirStKr, 1.4), false);
+            point[12] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.95, 1.4), false);
+            point[13] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.95, 0.3), false);
+            point[14] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14, 0.3), false);
+            point[15] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14, 0.2), false);
+            point[16] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.1, 0.2), false);
+            point[17] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.2, 0.1), false);
+            point[18] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.3, 0.1), false);
+            point[19] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.3, 0), false);
             point[20] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, 0), false);
             point[21] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, 5), false);
             lines[0] = oSketch31.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1382,7 +1390,7 @@ namespace InvAddIn
             oTrans["8. Крышка"].End();
             Profile oProfile32 = (Profile)oSketch32.Profiles.AddForSolid();
             ExtrudeFeature oExtrudeDef10 = oCompDef["8. Крышка"].Features.ExtrudeFeatures.AddByDistanceExtent(
-            /*Эскиз*/oProfile32,/*Длина в см*/ROsn * 1.3,/*Направление вдоль оси*/
+            /*Эскиз*/oProfile32,/*Длина в см*/DOsn * 1.3,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kPositiveExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kCutOperation,/*Эскиз*/oProfile32);
 
@@ -1392,7 +1400,7 @@ namespace InvAddIn
             PlanarSketch oSketch33 = oCompDef["8. Крышка"].Sketches.Add(oWorkPlane7, false);
             oTrans["8. Крышка"] = ThisApplication.TransactionManager.StartTransaction(
             ThisApplication.ActiveDocument, "Create Sample");
-            point[0] = oSketch33.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, ROsn * 1.43 + DOtvBolt + 0.05), false);
+            point[0] = oSketch33.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, DFlancaVnutr + DOtvBolt + 0.05), false);
             Окружность[0] = oSketch33.SketchCircles.AddByCenterRadius(point[0], 0.675);
             oTrans["8. Крышка"].End();
             Profile oProfile33 = (Profile)oSketch33.Profiles.AddForSolid();
@@ -1407,7 +1415,7 @@ namespace InvAddIn
             PlanarSketch oSketch34 = oCompDef["8. Крышка"].Sketches.Add(oWorkPlane8, false);
             oTrans["8. Крышка"] = ThisApplication.TransactionManager.StartTransaction(
             ThisApplication.ActiveDocument, "Create Sample");
-            point[0] = oSketch34.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, ROsn * 1.43 + DOtvBolt + 0.05), false);
+            point[0] = oSketch34.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, DFlancaVnutr + DOtvBolt + 0.05), false);
             Окружность[0] = oSketch34.SketchCircles.AddByCenterRadius(point[0], DOtvBolt);
             oTrans["8. Крышка"].End();
             Profile oProfile34 = (Profile)oSketch34.Profiles.AddForSolid();
@@ -1531,8 +1539,8 @@ namespace InvAddIn
             oPartDoc["5. Упор"].DisplayName = "5. Упор";
             PlanarSketch oSketch4 = oCompDef["5. Упор"].Sketches.Add(oCompDef["5. Упор"].WorkPlanes[3]);
             point[0] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0.7, 0), false);
-            point[1] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(ROsn * 0.635, 0), false);
-            point[2] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(ROsn * 0.635, 0.4), false);
+            point[1] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DOsn * 0.635, 0), false);
+            point[2] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DOsn * 0.635, 0.4), false);
             point[3] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.25, 0.4), false);
             point[4] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.25, 1.2), false);
             point[5] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.05, 1.2), false);
@@ -1585,10 +1593,10 @@ namespace InvAddIn
             oPartDoc["10. Тарелка"].DisplayName = "10. Тарелка";
             PlanarSketch oSketch5 = oCompDef["10. Тарелка"].Sketches.Add(oCompDef["10. Тарелка"].WorkPlanes[3]);
             point[0] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(ROsn * 0.89, 0), false);
-            point[2] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(ROsn * 0.89, 0.8), false);
-            point[3] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(ROsn * 0.89 - 0.3, 0.8), false);
-            point[4] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(ROsn * 0.89 - 0.3, 0.3), false);
+            point[1] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89, 0), false);
+            point[2] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89, 0.8), false);
+            point[3] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89 - 0.3, 0.8), false);
+            point[4] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89 - 0.3, 0.3), false);
             point[5] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.25, 0.3), false);
             point[6] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.25, 0.8), false);
             point[7] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.05, 0.8), false);
@@ -1626,8 +1634,8 @@ namespace InvAddIn
             oPartDoc["11. Диафрагма"].DisplayName = "11. Диафрагма";
             PlanarSketch oSketch6 = oCompDef["11. Диафрагма"].Sketches.Add(oCompDef["11. Диафрагма"].WorkPlanes[3]);
             point[0] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(ROsn * 1.43, 0), false);
-            point[2] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(ROsn * 1.43, 0.11), false);
+            point[1] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(DFlancaVnutr, 0), false);
+            point[2] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(DFlancaVnutr, 0.11), false);
             point[3] = oSketch6.SketchPoints.Add(oTransGeom["11. Диафрагма"].CreatePoint2d(0, 0.11), false);
             lines[0] = oSketch6.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch6.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1644,7 +1652,7 @@ namespace InvAddIn
             Имя_нового_документа("12. Кольцо 80х70");
             oPartDoc["12. Кольцо 80х70"].DisplayName = "12. Кольцо 80х70";
             PlanarSketch oSketch7 = oCompDef["12. Кольцо 80х70"].Sketches.Add(oCompDef["12. Кольцо 80х70"].WorkPlanes[3]);
-            point[0] = oSketch7.SketchPoints.Add(oTransGeom["12. Кольцо 80х70"].CreatePoint2d(RKolco - DKolco / 2, 0), false);
+            point[0] = oSketch7.SketchPoints.Add(oTransGeom["12. Кольцо 80х70"].CreatePoint2d(DKolca - DKolco / 2, 0), false);
             point[1] = oSketch7.SketchPoints.Add(oTransGeom["12. Кольцо 80х70"].CreatePoint2d(0, 0), false);
             point[2] = oSketch7.SketchPoints.Add(oTransGeom["12. Кольцо 80х70"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch7.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1659,14 +1667,14 @@ namespace InvAddIn
             Имя_нового_документа("14. Втулка");
             oPartDoc["14. Втулка"].DisplayName = "14. Втулка";
             PlanarSketch oSketch8 = oCompDef["14. Втулка"].Sketches.Add(oCompDef["14. Втулка"].WorkPlanes[3]);
-            point[0] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(0.25, 0), false);
+            point[0] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(DShtok, 0), false);
             point[1] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullka, 0), false);
             point[2] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullka, 0.3), false);
             point[3] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullkaSmall * 0.9, 0.3), false);
             point[4] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullkaSmall * 0.9, 0.4), false);
             point[5] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullkaSmall, 0.4), false);
             point[6] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(RVtullkaSmall, HVtulka), false);
-            point[7] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(0.25, HVtulka), false);
+            point[7] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(DShtok, HVtulka), false);
             point[8] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(0, 0), false);
             point[9] = oSketch8.SketchPoints.Add(oTransGeom["14. Втулка"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch8.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1738,8 +1746,8 @@ namespace InvAddIn
             oPartDoc["16. Прокладка"].DisplayName = "16. Прокладка";
             PlanarSketch oSketch10 = oCompDef["16. Прокладка"].Sketches.Add(oCompDef["16. Прокладка"].WorkPlanes[3]);
             point[0] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(DShtok * 1.5, 0), false);
-            point[1] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(RGasPr * 1.3, 0), false);
-            point[2] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(RGasPr * 1.3, LShtokRuchka - LShtokRuchka * 0.81 - 0.03), false);
+            point[1] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(DGasPr * 1.3, 0), false);
+            point[2] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(DGasPr * 1.3, LShtokRuchka - LShtokRuchka * 0.81 - 0.03), false);
             point[3] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(DShtok * 1.5, LShtokRuchka - LShtokRuchka * 0.81 - 0.03), false);
             point[4] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(0, 0), false);
             point[5] = oSketch10.SketchPoints.Add(oTransGeom["16. Прокладка"].CreatePoint2d(0, 2), false);
@@ -1758,7 +1766,7 @@ namespace InvAddIn
             Имя_нового_документа("17. Кольцо 55х48");
             oPartDoc["17. Кольцо 55х48"].DisplayName = "17. Кольцо 55х48";
             PlanarSketch oSketch11 = oCompDef["17. Кольцо 55х48"].Sketches.Add(oCompDef["17. Кольцо 55х48"].WorkPlanes[3]);
-            point[0] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(ROsn - 0.4 - 0.205, 0), false);
+            point[0] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(DOsn - 0.4 - 0.205, 0), false);
             point[1] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(0, 0), false);
             point[2] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch11.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1774,14 +1782,14 @@ namespace InvAddIn
             Имя_нового_документа("19. Клапан");
             oPartDoc["19. Клапан"].DisplayName = "19. Клапан";
             PlanarSketch oSketch12 = oCompDef["19. Клапан"].Sketches.Add(oCompDef["19. Клапан"].WorkPlanes[3]);
-            point[0] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 1.3, 0), false);
-            point[1] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 1.5, 0), false);
-            point[2] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 1.5, 0.5), false);
-            point[3] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 0.6, 0.5), false);
-            point[4] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 0.6, 1.4), false);
+            point[0] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 1.3, 0), false);
+            point[1] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 1.5, 0), false);
+            point[2] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 1.5, 0.5), false);
+            point[3] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 0.6, 0.5), false);
+            point[4] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 0.6, 1.4), false);
             point[5] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DShtok, 1.4), false);
             point[6] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DShtok, 0.3), false);
-            point[7] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(RGasPr * 1.3, 0.3), false);
+            point[7] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(DGasPr * 1.3, 0.3), false);
             point[8] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(0, 0), false);
             point[9] = oSketch12.SketchPoints.Add(oTransGeom["19. Клапан"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch12.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1819,22 +1827,22 @@ namespace InvAddIn
             oPartDoc["20. Пробка"].DisplayName = "20. Пробка";
             PlanarSketch oSketch13 = oCompDef["20. Пробка"].Sketches.Add(oCompDef["20. Пробка"].WorkPlanes[3]);
             point[0] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.01, 0), false);
-            point[2] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.16, (HProbka - HRezbProbka) * 0.215), false);
-            point[3] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.16, (HProbka - HRezbProbka) * 0.785), false);
-            point[4] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.01, HProbka - HRezbProbka), false);
-            point[5] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.98, HProbka - HRezbProbka), false);
-            point[6] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.98, HProbka - HRezbProbka + 0.05), false);
-            point[7] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.98 - 0.05, HProbka - HRezbProbka + 0.05), false);
-            point[8] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.98 - 0.05, 0.953), false);
+            point[1] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.01, 0), false);
+            point[2] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.16, (HProbka - HRezbProbka) * 0.215), false);
+            point[3] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.16, (HProbka - HRezbProbka) * 0.785), false);
+            point[4] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.01, HProbka - HRezbProbka), false);
+            point[5] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98, HProbka - HRezbProbka), false);
+            point[6] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98, HProbka - HRezbProbka + 0.05), false);
+            point[7] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98 - 0.05, HProbka - HRezbProbka + 0.05), false);
+            point[8] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98 - 0.05, 0.953), false);
             //point[9] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(2.394, 0.853), false);
             //point[10] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(2.323, 0.923), false);
-            point[11] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap, 1), false);
-            point[12] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap, HProbka - 0.15), false);
-            point[13] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap - 0.15, HProbka), false);
-            point[14] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.73 + 0.05, HProbka), false);
-            point[15] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.73, HProbka - 0.05), false);
-            point[16] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(RKlap * 0.73, HProbka * 0.6), false);
+            point[11] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap, 1), false);
+            point[12] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap, HProbka - 0.15), false);
+            point[13] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap - 0.15, HProbka), false);
+            point[14] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.73 + 0.05, HProbka), false);
+            point[15] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.73, HProbka - 0.05), false);
+            point[16] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.73, HProbka * 0.6), false);
             point[17] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(1, HProbka * 0.38), false);
             point[18] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(1, 0.2), false);
             point[19] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, 0.2), false);
@@ -1878,12 +1886,12 @@ namespace InvAddIn
             PlanarSketch oSketch14 = oCompDef["20. Пробка"].Sketches.Add(oWorkPlane1, false);
             oTrans["20. Пробка"] = ThisApplication.TransactionManager.StartTransaction(
             ThisApplication.ActiveDocument, "Create Sample");
-            point[0] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.01, ROsn * 0.58), false);
-            point[1] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, ROsn * 1.16), false);
-            point[2] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(-ROsn * 1.01, ROsn * 0.58), false);
-            point[3] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(-ROsn * 1.01, -ROsn * 0.58), false);
-            point[4] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, -ROsn * 1.16), false);
-            point[5] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(ROsn * 1.01, -ROsn * 0.58), false);
+            point[0] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.01, DOsn * 0.58), false);
+            point[1] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, DOsn * 1.16), false);
+            point[2] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(-DOsn * 1.01, DOsn * 0.58), false);
+            point[3] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(-DOsn * 1.01, -DOsn * 0.58), false);
+            point[4] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, -DOsn * 1.16), false);
+            point[5] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.01, -DOsn * 0.58), false);
             point[6] = oSketch14.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(0, 0), false);
             lines[0] = oSketch14.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch14.SketchLines.AddByTwoPoints(point[1], point[2]);
@@ -1907,8 +1915,8 @@ namespace InvAddIn
             point[0] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(0, 0), false);
             point[1] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(0, 2), false);
             point[2] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(DShtok * 1.4, 0), false);
-            point[3] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(RGasPr * 0.9, 0), false);
-            point[4] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(RGasPr * 0.9, 0.03), false);
+            point[3] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(DGasPr * 0.9, 0), false);
+            point[4] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(DGasPr * 0.9, 0.03), false);
             point[5] = oSketch15.SketchPoints.Add(oTransGeom["21. Шайба"].CreatePoint2d(DShtok * 1.4, 0.03), false);
             lines[0] = oSketch15.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch15.SketchLines.AddByTwoPoints(point[2], point[3]);
@@ -2163,16 +2171,17 @@ namespace InvAddIn
             Save_Model("18. Пружина", "Сохранить модель 18. Пружина");
             MessageBox.Show("Создание деталей завершено!", "Сообщение");
             //Перевод размеров в мм
-            RGasPr = RGasPr * 10;
-            ROsn = ROsn * 10;
-            RKlap = RKlap * 10;
+            DGasPr = DGasPr * 2 * 10;
+            DOsn = DOsn * 2 * 10;
+            DKlap = DKlap * 2 * 10;
             RVtullka = RVtullka * 10;
             RVtullkaSmall = RVtullkaSmall * 10;
-            RKolco = RKolco * 10;
-            ShirFlanca = ShirFlanca * 10;
+            DKolca = DKolca * 2 * 10;
+            DFlancaVnesh = DFlancaVnesh * 2 * 10;
+            DFlancaVnutr = DFlancaVnutr * 2 * 10;
             HFlanca = HFlanca * 10;
             HKorp = HKorp * 10;
-            ROtvTr = ROtvTr * 10;
+            DOtvTr = DOtvTr * 2 * 10;
             DOtvBolt = DOtvBolt * 2 * 10;
             HFlancaKr = HFlancaKr * 10;
             DVint = DVint * 2 * 10;

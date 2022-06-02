@@ -126,6 +126,7 @@
   <ItemGroup>
     <None Include="Resources\01Standart.png" />
     <None Include="Resources\iconBig2.png" />
+    <None Include="Resources\iconBig3.png" />
     <Content Include="Resources\Винт 1.png" />
     <Content Include="Resources\Втулка 1.png" />
     <Content Include="Resources\Кольцо1.png" />
