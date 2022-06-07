@@ -22,7 +22,6 @@ namespace AddinPresReg
         //Иконки
         ButtonIcons m_ButtonIcons;
         //ButtonIcons m_ButtonNew;
-
         Form1 form;
 
         public ButtonMsg(Inventor.Application InvApp)
@@ -53,7 +52,8 @@ namespace AddinPresReg
             //Редактирование окна при наведении на кнопку
             m_ButtonDef.ProgressiveToolTip.Title = "Регулятор давления";
             m_ButtonDef.ProgressiveToolTip.Description = "Проектирование регулятора давления.";
-            m_ButtonDef.ProgressiveToolTip.ExpandedDescription = "Проектирование регулятора давления с возможностью изменения параметров деталей в зависимости от необходимости.";
+            m_ButtonDef.ProgressiveToolTip.ExpandedDescription = "Проектирование регулятора давления " +
+                "с возможностью изменения параметров деталей в зависимости от необходимости.";
             m_ButtonDef.ProgressiveToolTip.Image = m_ButtonIcons.IconDisplay;
 
             //Добавление кнопки на панель
@@ -84,12 +84,7 @@ namespace AddinPresReg
             }
             form.Show();
         }
-        //void OnExecute(Inventor.NameValueMap Context)
-        //{
-        //    //System.Windows.Forms.MessageBox.Show("Моя первая кнопка");
-        //    form = new Form1();
-        //    form.Show();
-        //}
+        
 
         void OnAddInDeactivate()
         {
@@ -112,11 +107,9 @@ namespace AddinPresReg
             {
                 RibbonZeroDoc = InvApp.UserInterfaceManager.Ribbons["Assembly"];
                 RibbonTabFirst = RibbonZeroDoc.RibbonTabs["id_TabDesign"];
-                this.RibbonPanelFirst = RibbonTabFirst.RibbonPanels.Add("Регуляторы", "id_PanelMessage2", "", "id_PanelA_DesignFrame", true);
+                this.RibbonPanelFirst = RibbonTabFirst.RibbonPanels.Add("Регуляторы", 
+                    "id_PanelMessage2", "", "id_PanelA_DesignFrame", true);
                 
-                //this.RibbonPanelFirst..Move(2, 2);
-                //this.RibbonPanelFirst = this.RibbonTabFirst.RibbonPanels["id_PanelA_DesignFasten"];
-                //this.RibbonPanelFirst = this.RibbonTabFirst.RibbonPanels["id_PanelA_DesignPowerTransmission"];
             }
         }//Конец класса
 

@@ -134,15 +134,19 @@
     <Content Include="Resources\Корпус 2.png" />
     <Content Include="Resources\Корпус 3.png" />
     <Content Include="Resources\Крышка 1.png" />
+    <None Include="Resources\Опора.png" />
     <Content Include="Resources\Пробка 1.png" />
     <Content Include="Resources\Пробка 2.png" />
+    <None Include="Resources\Пружина.png" />
     <Content Include="Resources\Сборка 1 тест.png" />
     <Content Include="Resources\Сборка 1.png" />
     <Content Include="Resources\Сборка 2 тест.png" />
     <Content Include="Resources\Сборка 2.png" />
     <Content Include="Resources\Сборка.png" />
+    <None Include="Resources\Тарелка.png" />
     <Content Include="Resources\Угольник 1.png" />
     <Content Include="Resources\Угольник 2.png" />
+    <None Include="Resources\Упор.png" />
     <Content Include="Resources\Штифт1.png" />
     <Content Include="Resources\Шток 1.png" />
   </ItemGroup>

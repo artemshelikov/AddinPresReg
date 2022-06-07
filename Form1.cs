@@ -117,8 +117,66 @@ namespace InvAddIn
             this.comboBox30.Items.AddRange(new object[] { "65,0", "60,0", "61,0", "62,0", "63,0", "64,0", "66,0", "67,0" });
             comboBox31.Text = Convert.ToString(DShtok);
             this.comboBox31.Items.AddRange(new object[] { "5,0", "4,0", "6,0", "7,0", "8,0" });
-
-
+            comboBox38.Text = Convert.ToString(HPr6);
+            this.comboBox38.Items.AddRange(new object[] { "45,0"});
+            comboBox39.Text = Convert.ToString(DPr6);
+            this.comboBox39.Items.AddRange(new object[] { "43,5", "40,5", "41,5", "42,5", "44,5", "45,5", "46,5" });
+            comboBox40.Text = Convert.ToString(dPr6);
+            this.comboBox40.Items.AddRange(new object[] { "7", "8", "9", "10", "11", "12" });
+            comboBox41.Text = Convert.ToString(nPr6);
+            this.comboBox41.Items.AddRange(new object[] { "4", "4,5", "5", "5,5"});
+            comboBox45.Text = Convert.ToString(HPr7);
+            this.comboBox45.Items.AddRange(new object[] { "42,0" });
+            comboBox44.Text = Convert.ToString(DPr7);
+            this.comboBox44.Items.AddRange(new object[] { "21,5", "18,5", "19,5", "20,5", "22,5", "23,5", "24,5" });
+            comboBox43.Text = Convert.ToString(dPr7);
+            this.comboBox43.Items.AddRange(new object[] { "3", "2", "4", "5"});
+            comboBox42.Text = Convert.ToString(nPr7);
+            this.comboBox42.Items.AddRange(new object[] { "7,5", "5,5", "6,0", "6,5", "7,0", "8,0" });
+            comboBox49.Text = Convert.ToString(HPr18);
+            this.comboBox49.Items.AddRange(new object[] { "19,0" });
+            comboBox48.Text = Convert.ToString(DPr18);
+            this.comboBox48.Items.AddRange(new object[] { "19,0", "16,0", "17,0", "18,0", "20,0"});
+            comboBox47.Text = Convert.ToString(dPr18);
+            this.comboBox47.Items.AddRange(new object[] { "2", "3", "4", "5" });
+            comboBox46.Text = Convert.ToString(nPr18);
+            this.comboBox46.Items.AddRange(new object[] { "6,0", "4,0", "4,5", "5,0", "5,5", "6,5" });
+            comboBox34.Text = Convert.ToString(DFlancaVnesh);
+            this.comboBox34.Items.AddRange(new object[] { "115,0", "116,0", "117,0", "118,0", "119,0", "120,0", "121,0", "122,0" });
+            comboBox33.Text = Convert.ToString(DFlancaVnutr);
+            this.comboBox33.Items.AddRange(new object[] { "90,0", "91,0", "92,0", "93,0", "94,0", "95,0", "96,0", "97,0" });
+            comboBox35.Text = Convert.ToString(DOtvBolt);
+            this.comboBox35.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0", "14,0" });
+            comboBox36.Text = Convert.ToString(DShtift);
+            this.comboBox36.Items.AddRange(new object[] { "8,0", "5,0", "6,0", "7,0", "9,0", "10,0", "11,0" });
+            comboBox37.Text = Convert.ToString(DShtok);
+            this.comboBox37.Items.AddRange(new object[] { "5,0", "4,0", "6,0", "7,0", "8,0" });
+            comboBox50.Text = Convert.ToString(DTar);
+            this.comboBox50.Items.AddRange(new object[] { "58,0", "59,0", "60,0", "61,0", "62,0", "63,0"});
+            comboBox51.Text = Convert.ToString(HTar);
+            this.comboBox51.Items.AddRange(new object[] { "8,0", "7,0", "9,0", "10,0", "11,0", "12,0" });
+            comboBox52.Text = Convert.ToString(hTar);
+            this.comboBox52.Items.AddRange(new object[] { "5,0", "6,0", "7,0", "8,0", "9,0" });
+            comboBox53.Text = Convert.ToString(d1Tar);
+            this.comboBox53.Items.AddRange(new object[] { "50,0", "49,0", "48,0", "47,0", "46,0" });
+            comboBox54.Text = Convert.ToString(d2Tar);
+            this.comboBox54.Items.AddRange(new object[] { "22,0", "19,0", "20,0", "21,0", "23,0" });
+            comboBox56.Text = Convert.ToString(DKolca17);
+            this.comboBox56.Items.AddRange(new object[] { "50,0", "45,0", "47,0", "53,0", "55,0" });
+            comboBox55.Text = Convert.ToString(dKolca17);
+            this.comboBox55.Items.AddRange(new object[] { "4,1", "3,6", "3,8", "4,3" });
+            comboBox57.Text = Convert.ToString(DYpor);
+            this.comboBox57.Items.AddRange(new object[] { "40,0", "37,0", "38,0", "39,0", "41,0", "42,0", "43,0" });
+            comboBox58.Text = Convert.ToString(HYpor);
+            this.comboBox58.Items.AddRange(new object[] { "12,0", "9,0", "10,0", "11,0", "13,0", "14,0" });
+            comboBox59.Text = Convert.ToString(d1Ypor);
+            this.comboBox59.Items.AddRange(new object[] { "25,0", "22,0", "23,0", "24,0", "26,0", "27,0", "28,0" });
+            comboBox60.Text = Convert.ToString(d2Ypor);
+            this.comboBox60.Items.AddRange(new object[] { "21,0", "18,0", "19,0", "20,0", "22,0", "23,0", "24,0" });
+            comboBox61.Text = Convert.ToString(h1Ypor);
+            this.comboBox61.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0" });
+            comboBox62.Text = Convert.ToString(h2Ypor);
+            this.comboBox62.Items.AddRange(new object[] { "5,0", "6,0", "7,0", "8,0", "9,0" });
         }
 
 
@@ -145,11 +203,235 @@ namespace InvAddIn
 
         }
 
-        private static double DGasPr = 20, DOsn = 63, DKlap = 48, RVtullka = 7.5, RVtullkaSmall = 5, DKolca = 80,
-            DFlancaVnesh = 115, DFlancaVnutr = 90, HFlanca = 12, HKorp = 75, DOtvTr = 33.23, DOtvBolt = 8, HFlancaKr = 10, DVint = 16,
-            ShirStKr = 5, HKr = 75, HGorlKr = 11, HVint = 63, HRezbVint = 37, DShtift = 8, HShtift = 75, HVtulka = 10,
-            HYgol = 22, ShirYgol = 18, LYgol = 70, LTrYgol = 52, DKolco = 5.8, HProbka = 20, HRezbProbka = 14,
-            DShtok = 5, LShtok = 65, LShtokRuchka = 15;
+        private static double DGasPr = 20, DOsn = 63, DKlap = 48, RVtullka = 7.5, 
+            RVtullkaSmall = 5, DKolca = 80, DFlancaVnesh = 115, DFlancaVnutr = 90, 
+            HFlanca = 12, HKorp = 75, DOtvTr = 33.23, DOtvBolt = 8, HFlancaKr = 10, 
+            DVint = 16, ShirStKr = 5, HKr = 75, HGorlKr = 11, HVint = 63, 
+            HRezbVint = 37, DShtift = 8, HShtift = 75, HVtulka = 10,HYgol = 22, 
+            ShirYgol = 18, LYgol = 70, LTrYgol = 52, DKolco = 5.8, HProbka = 20, 
+            HRezbProbka = 14, DShtok = 5, LShtok = 65, LShtokRuchka = 15, 
+            HPr6 = 45, HPr7 = 42, HPr18 = 19, DPr6 = 43.5, DPr7 = 21.5, DPr18 = 19,
+            dPr6 = 7, dPr7 = 3, dPr18 = 2, nPr6 = 4, nPr7 = 7.5, nPr18 = 6, 
+            DTar = 58, HTar = 8, hTar = 5, d1Tar = 50, d2Tar = 22, DKolca17 = 50, 
+            dKolca17 = 4.1, DYpor = 40, HYpor = 12, d1Ypor = 25, d2Ypor = 21, h1Ypor = 8, 
+            h2Ypor = 5;
+
+        private void comboBox44_TextChanged(object sender, EventArgs e)
+        {
+            DPr7 = Convert.ToDouble(comboBox44.Text);
+        }
+
+        private void comboBox43_TextChanged(object sender, EventArgs e)
+        {
+            dPr7 = Convert.ToDouble(comboBox43.Text);
+        }
+
+        private void comboBox42_TextChanged(object sender, EventArgs e)
+        {
+            nPr7 = Convert.ToDouble(comboBox42.Text);
+        }
+
+        private void comboBox49_TextChanged(object sender, EventArgs e)
+        {
+            HPr18 = Convert.ToDouble(comboBox49.Text);
+        }
+
+        private void comboBox48_TextChanged(object sender, EventArgs e)
+        {
+            DPr18 = Convert.ToDouble(comboBox48.Text);
+        }
+
+        private void comboBox47_TextChanged(object sender, EventArgs e)
+        {
+            dPr18 = Convert.ToDouble(comboBox47.Text);
+        }
+
+        private void comboBox57_TextChanged(object sender, EventArgs e)
+        {
+            DYpor = Convert.ToDouble(comboBox57.Text);
+            if (DYpor > DOsn*0.88-ShirStKr)
+            {
+                MessageBox.Show("Выберите значение меньше!");
+            }
+        }
+
+        private void comboBox58_TextChanged(object sender, EventArgs e)
+        {
+            HYpor = Convert.ToDouble(comboBox58.Text);
+        }
+
+        private void comboBox59_TextChanged(object sender, EventArgs e)
+        {
+            d1Ypor = Convert.ToDouble(comboBox59.Text);
+            if (d1Ypor > DPr6-dPr6)
+            {
+                MessageBox.Show("Некорректное значение! Выберите значение меньше или измените параметры пружины 6!");
+            }
+        }
+
+        private void comboBox60_TextChanged(object sender, EventArgs e)
+        {
+            d2Ypor = Convert.ToDouble(comboBox60.Text);
+            if (d2Ypor < DPr7)
+            {
+                MessageBox.Show("Некорректное значение! Выберите значение ,больше или измените параметры пружины 7!");
+            }
+            if (d2Ypor > d1Ypor-4|| d2Ypor == d1Ypor-4)
+            {
+                MessageBox.Show("Диаметр под пружину 7 не может быть больше диаметра под пружину 6!");
+            }
+        }
+
+        private void comboBox61_TextChanged(object sender, EventArgs e)
+        {
+            h1Ypor = Convert.ToDouble(comboBox61.Text);
+            if (h1Ypor > HYpor)
+            {
+                MessageBox.Show("Высота под пружину 6 не может быть больше высоты детали!");
+            }
+        }
+
+        private void comboBox62_TextChanged(object sender, EventArgs e)
+        {
+            h2Ypor = Convert.ToDouble(comboBox62.Text);
+            if (h2Ypor > HYpor)
+            {
+                MessageBox.Show("Высота под пружину 7 не может быть больше высоты детали!");
+            }
+            if (h2Ypor > h1Ypor)
+            {
+                MessageBox.Show("Высота под пружину 7 не может быть больше высоты под пружину 6!");
+            }
+        }
+
+        private void comboBox46_TextChanged(object sender, EventArgs e)
+        {
+            nPr18 = Convert.ToDouble(comboBox46.Text);
+        }
+
+        private void comboBox50_TextChanged(object sender, EventArgs e)
+        {
+            DTar = Convert.ToDouble(comboBox50.Text);
+        }
+
+        private void comboBox51_TextChanged(object sender, EventArgs e)
+        {
+            HTar = Convert.ToDouble(comboBox51.Text);
+        }
+
+        private void comboBox52_TextChanged(object sender, EventArgs e)
+        {
+            hTar = Convert.ToDouble(comboBox52.Text);
+            if (hTar==HTar||hTar>HTar) 
+            { 
+                MessageBox.Show("Это значение не может равняться или быть больше высоты"); 
+            }
+        }
+
+        private void comboBox56_TextChanged(object sender, EventArgs e)
+        {
+            DKolca17 = Convert.ToDouble(comboBox56.Text);
+        }
+
+        private void comboBox55_TextChanged(object sender, EventArgs e)
+        {
+            dKolca17 = Convert.ToDouble(comboBox55.Text);
+        }
+
+        private void comboBox53_TextChanged(object sender, EventArgs e)
+        {
+            d1Tar = Convert.ToDouble(comboBox53.Text);
+            if (d1Tar==DPr6||d1Tar<DPr6)
+            {
+                MessageBox.Show("Это значение не может равняться или быть меньше диаметра пружины 6");
+            }
+        }
+
+        private void comboBox54_TextChanged(object sender, EventArgs e)
+        {
+            d2Tar = Convert.ToDouble(comboBox54.Text);
+            if (d2Tar == DPr7 || d2Tar < DPr7)
+            {
+                MessageBox.Show("Это значение не может равняться или быть меньше диаметра пружины 7");
+            }
+            if (d2Tar/2*1.2 == DPr6/2-dPr6 || d1Tar/2*1.2 < DPr6/2-dPr6)
+            {
+                MessageBox.Show("Уменьшите это значение или выберите другие параметры пружины 6");
+            }
+            
+        }
+
+        private void comboBox34_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox34.Text != comboBox4.Text)
+            {
+                MessageBox.Show("Поменяйте соответствующее значение у детали Корпус");
+            }
+            DFlancaVnesh = Convert.ToDouble(comboBox34.Text);
+            
+        }
+
+        private void comboBox33_TextChanged(object sender, EventArgs e)
+        {
+            DFlancaVnutr = Convert.ToDouble(comboBox33.Text);
+            if (comboBox33.Text != comboBox32.Text)
+            {
+                MessageBox.Show("Поменяйте соответствующее значение у детали Корпус");
+            }
+            
+        }
+
+        private void comboBox35_TextChanged(object sender, EventArgs e)
+        {
+            DOtvBolt = Convert.ToDouble(comboBox35.Text);
+            if (comboBox35.Text != comboBox11.Text)
+            {
+                MessageBox.Show("Поменяйте соответствующее значение у детали Корпус");
+            }
+        }
+
+        private void comboBox36_TextChanged(object sender, EventArgs e)
+        {
+            DShtift = Convert.ToDouble(comboBox36.Text);
+            if (comboBox36.Text != comboBox20.Text)
+            {
+                MessageBox.Show("Поменяйте соответствующее значение у детали Штифт");
+            }
+        }
+
+        private void comboBox37_TextChanged(object sender, EventArgs e)
+        {
+            DShtok = Convert.ToDouble(comboBox37.Text);
+            if (comboBox37.Text != comboBox31.Text)
+            {
+                MessageBox.Show("Поменяйте соответствующее значение у детали Шток");
+            }
+        }
+
+        private void comboBox45_TextChanged(object sender, EventArgs e)
+        {
+            HPr7 = Convert.ToDouble(comboBox45.Text);
+        }
+
+        private void comboBox41_TextChanged(object sender, EventArgs e)
+        {
+            nPr6 = Convert.ToDouble(comboBox41.Text);
+        }
+
+        private void comboBox40_TextChanged(object sender, EventArgs e)
+        {
+            dPr6 =  Convert.ToDouble(comboBox40.Text);
+        }
+
+        private void comboBox39_TextChanged(object sender, EventArgs e)
+        {
+            DPr6 = Convert.ToDouble(comboBox39.Text);
+        }
+
+        private void comboBox38_TextChanged(object sender, EventArgs e)
+        {
+            HPr6 = Convert.ToDouble(comboBox38.Text);
+        }
 
         private void comboBox15_TextChanged(object sender, EventArgs e)
         {
@@ -171,19 +453,24 @@ namespace InvAddIn
             TransientGeometry aTransGeom = ThisApplication.TransientGeometry;
             Matrix oPositionMatrix = aTransGeom.CreateMatrix();
             //Переменные для выбранных поверхностей
-            Face oFace1, oFace2, oFace3, oFace4, oFace5, oFace6, oFace7, oFace8, oFace9, oFace10, oFace11, oFace12, oFace13, oFace14, oFace15, oFace16,
-                oFace17, oFace18, oFace19, oFace20, oFace21, oFace22, oFace23, oFace24, oFace25, oFace26, oFace27, oFace28, oFace29, oFace30, oFace31,
-                oFace32, oFace33, oFace34, oFace35, oFace36, oFace37, oFace38, oFace39, oFace40, oFace41, oFace42, oFace43, oFace44, oFace45, oFace46,
-                oFace47, oFace48, oFace49, oFace50, oFace51, oFace52, oFace53, oFace54, oFace55, oFace56, oFace57, oFace58, oFace59;
+            Face oFace1, oFace2, oFace3, oFace4, oFace5, oFace6, oFace7, oFace8, oFace9, oFace10, oFace11,
+                oFace12, oFace13, oFace14, oFace15, oFace16, oFace17, oFace18, oFace19, oFace20, oFace21, 
+                oFace22, oFace23, oFace24, oFace25, oFace26, oFace27, oFace28, oFace29, oFace30, oFace31,
+                oFace32, oFace33, oFace34, oFace35, oFace36, oFace37, oFace38, oFace39, oFace40, oFace41, 
+                oFace42, oFace43, oFace44, oFace45, oFace46, oFace47, oFace48, oFace49, oFace50, oFace51, 
+                oFace52, oFace53, oFace54, oFace55, oFace56, oFace57, oFace58, oFace59;
             //Переменные для сопряжений
-            MateConstraint Поверхность1, Поверхность2, Поверхность3, Поверхность5, Поверхность6, Поверхность7, Поверхность8, Поверхность9,
-                Поверхность10, Поверхность11, Поверхность12, Поверхность13, Поверхность14, Поверхность15, Поверхность16, Поверхность17, Поверхность18,
-                Поверхность19, Поверхность20, Поверхность21, Поверхность22, Поверхность23, Поверхность24, Поверхность25, Поверхность26, Поверхность28,
-                Поверхность29, Поверхность31, Поверхность32, Поверхность33, Поверхность34, Поверхность35, Поверхность36, Поверхность37;
+            MateConstraint Поверхность1, Поверхность2, Поверхность3, Поверхность5, Поверхность6, 
+                Поверхность7, Поверхность8, Поверхность9,Поверхность10, Поверхность11, Поверхность12, 
+                Поверхность13, Поверхность14, Поверхность15, Поверхность16, Поверхность17, Поверхность18,
+                Поверхность19, Поверхность20, Поверхность21, Поверхность22, Поверхность23, Поверхность24, 
+                Поверхность25, Поверхность26, Поверхность28,Поверхность29, Поверхность31, Поверхность32, 
+                Поверхность33, Поверхность34, Поверхность35, Поверхность36, Поверхность37;
             InsertConstraint Поверхность27, Поверхность30, Поверхность4;
 
             //Вставка в сборку корпуса
-            ComponentOccurrence Korpus_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["13. Корпус"], oPositionMatrix);
+            ComponentOccurrence Korpus_Model = oAssDoc.ComponentDefinition.
+                Occurrences.Add(oFileName["13. Корпус"], oPositionMatrix);
             //Вставка в сборку пробки
             ComponentOccurrence Probka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["20. Пробка"], oPositionMatrix);
             //Сопряжение корпуса и пробки
@@ -199,12 +486,14 @@ namespace InvAddIn
             //Вставка в сборку клапана
             ComponentOccurrence Klapan_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["19. Клапан"], oPositionMatrix);
             //Вставка в сборку Крышки
-            ComponentOccurrence Krishka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["8. Крышка"], oPositionMatrix);
+            ComponentOccurrence Krishka_Model = oAssDoc.
+                ComponentDefinition.Occurrences.Add(oFileName["8. Крышка"], oPositionMatrix);
             //Сопряжение корпуса и крышки
             oFace27 = Korpus_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Korpus_Model.SurfaceBodies[1].Faces.Count; i++)
             {
-                if (Korpus_Model.SurfaceBodies[1].Faces[i].InternalName == "{AB5AE357-3018-9014-F686-2AB10D12C087}")
+                if (Korpus_Model.SurfaceBodies[1].Faces[i].
+                    InternalName == "{AB5AE357-3018-9014-F686-2AB10D12C087}")
                 {
                     oFace27 = Korpus_Model.SurfaceBodies[1].Faces[i] as Face;
                     break;
@@ -213,13 +502,15 @@ namespace InvAddIn
             oFace28 = Krishka_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
             {
-                if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{25F2A212-7BDB-168B-0BA7-4139FA20B9C4}")
+                if (Krishka_Model.SurfaceBodies[1].Faces[i].
+                    InternalName == "{25F2A212-7BDB-168B-0BA7-4139FA20B9C4}")
                 {
                     oFace28 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
                     break;
                 }
             }
-            Поверхность15 = oAssCompDef.Constraints.AddMateConstraint(oFace27, oFace28, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
+            Поверхность15 = oAssCompDef.Constraints.AddMateConstraint(oFace27, oFace28, 0, 
+                InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             oFace11 = Korpus_Model.SurfaceBodies[1].Faces[1];
             oFace12 = Krishka_Model.SurfaceBodies[1].Faces[27];
             Поверхность6 = oAssCompDef.Constraints.AddMateConstraint(oFace11, oFace12, HFlanca / 10, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
@@ -236,7 +527,8 @@ namespace InvAddIn
             Поверхность21 = oAssCompDef.Constraints.AddMateConstraint(oFace27, oFace34, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             oFace5 = Korpus_Model.SurfaceBodies[1].Faces[73];
             oFace6 = Kolco17_Model.SurfaceBodies[1].Faces[1];
-            Поверхность3 = oAssCompDef.Constraints.AddMateConstraint(oFace5, oFace6, 0.205, InferredTypeEnum.kNoInference, InferredTypeEnum.kInferredPoint);
+            Поверхность3 = oAssCompDef.Constraints.AddMateConstraint(oFace5, oFace6, 0.205, 
+                InferredTypeEnum.kNoInference, InferredTypeEnum.kInferredPoint);
             //Сопряжение корпуса и клапана
             oFace7 = Klapan_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Klapan_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -1010,6 +1302,28 @@ namespace InvAddIn
             DShtok = DShtok / 2 / 10;
             LShtok = LShtok / 10;
             LShtokRuchka = LShtokRuchka / 10;
+            HPr6 = HPr6 / 10;
+            DPr6 = DPr6 / 2 / 10;
+            dPr6 = dPr6 / 2 / 10;
+            HPr7 = HPr7 / 10;
+            DPr7 = DPr7 / 2 / 10;
+            dPr7 = dPr7 / 2 / 10;
+            HPr18 = HPr18 / 10;
+            DPr18 = DPr18 / 2 / 10;
+            dPr18 = dPr18 / 2 / 10;
+            DTar = DTar / 2 / 10;
+            HTar = HTar / 10;
+            hTar = hTar / 10;
+            d1Tar = d1Tar /2 / 10;
+            d2Tar = d2Tar / 2 / 10;
+            DKolca17 = DKolca17 / 2 / 10;
+            dKolca17 = dKolca17 / 2 / 10;
+            DYpor = DYpor / 2 / 10;
+            HYpor = HYpor / 10;
+            d1Ypor = d1Ypor / 2 / 10;
+            d2Ypor = d2Ypor / 2 / 10;
+            h1Ypor = h1Ypor / 10;
+            h2Ypor = h2Ypor / 10;
 
 
             //Построение детали 1.Опора
@@ -1332,14 +1646,14 @@ namespace InvAddIn
             point[9] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DVint, HKr - HGorlKr - ShirStKr), false);
             point[10] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.86 - ShirStKr, HKr - HGorlKr - ShirStKr), false);
             point[11] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.03 - ShirStKr, 1.4), false);
-            point[12] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.95, 1.4), false);
-            point[13] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 0.95, 0.3), false);
-            point[14] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14, 0.3), false);
-            point[15] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14, 0.2), false);
-            point[16] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.1, 0.2), false);
-            point[17] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.2, 0.1), false);
-            point[18] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.3, 0.1), false);
-            point[19] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DOsn * 1.14 + 0.3, 0), false);
+            point[12] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar, 1.4), false);
+            point[13] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar, 0.3), false);
+            point[14] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar*1.24, 0.3), false);
+            point[15] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar * 1.24, 0.2), false);
+            point[16] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar * 1.24 + 0.1, 0.2), false);
+            point[17] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar * 1.24 + 0.2, 0.1), false);
+            point[18] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar * 1.24 + 0.3, 0.1), false);
+            point[19] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(DTar * 1.24 + 0.3, 0), false);
             point[20] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, 0), false);
             point[21] = oSketch31.SketchPoints.Add(oTransGeom["8. Крышка"].CreatePoint2d(0, 5), false);
             lines[0] = oSketch31.SketchLines.AddByTwoPoints(point[0], point[1]);
@@ -1539,14 +1853,14 @@ namespace InvAddIn
             oPartDoc["5. Упор"].DisplayName = "5. Упор";
             PlanarSketch oSketch4 = oCompDef["5. Упор"].Sketches.Add(oCompDef["5. Упор"].WorkPlanes[3]);
             point[0] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0.7, 0), false);
-            point[1] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DOsn * 0.635, 0), false);
-            point[2] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DOsn * 0.635, 0.4), false);
-            point[3] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.25, 0.4), false);
-            point[4] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.25, 1.2), false);
-            point[5] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.05, 1.2), false);
-            point[6] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(1.05, 0.7), false);
-            point[7] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0, 0.7), false);
-            point[8] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0, 0.4), false);
+            point[1] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DYpor, 0), false);
+            point[2] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(DYpor, HYpor-h1Ypor), false);
+            point[3] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(d1Ypor, HYpor - h1Ypor), false);
+            point[4] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(d1Ypor, HYpor), false);
+            point[5] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(d2Ypor, HYpor), false);
+            point[6] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(d2Ypor, HYpor-h2Ypor), false);
+            point[7] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0, HYpor - h2Ypor), false);
+            point[8] = oSketch4.SketchPoints.Add(oTransGeom["5. Упор"].CreatePoint2d(0, HYpor - h1Ypor), false);
             lines[0] = oSketch4.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch4.SketchLines.AddByTwoPoints(point[1], point[2]);
             lines[2] = oSketch4.SketchLines.AddByTwoPoints(point[2], point[3]);
@@ -1593,15 +1907,15 @@ namespace InvAddIn
             oPartDoc["10. Тарелка"].DisplayName = "10. Тарелка";
             PlanarSketch oSketch5 = oCompDef["10. Тарелка"].Sketches.Add(oCompDef["10. Тарелка"].WorkPlanes[3]);
             point[0] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89, 0), false);
-            point[2] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89, 0.8), false);
-            point[3] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89 - 0.3, 0.8), false);
-            point[4] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DOsn * 0.89 - 0.3, 0.3), false);
-            point[5] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.25, 0.3), false);
-            point[6] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.25, 0.8), false);
-            point[7] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.05, 0.8), false);
-            point[8] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(1.05, 0.3), false);
-            point[9] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(0, 0.3), false);
+            point[1] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DTar, 0), false);
+            point[2] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(DTar, HTar), false);
+            point[3] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d1Tar, HTar), false);
+            point[4] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d1Tar, HTar-hTar), false);
+            point[5] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d2Tar*1.2, HTar - hTar), false);
+            point[6] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d2Tar * 1.2, HTar), false);
+            point[7] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d2Tar, HTar), false);
+            point[8] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(d2Tar, HTar - hTar), false);
+            point[9] = oSketch5.SketchPoints.Add(oTransGeom["10. Тарелка"].CreatePoint2d(0, HTar - hTar), false);
             lines[0] = oSketch5.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch5.SketchLines.AddByTwoPoints(point[1], point[2]);
             lines[2] = oSketch5.SketchLines.AddByTwoPoints(point[2], point[3]);
@@ -1687,13 +2001,10 @@ namespace InvAddIn
             lines[7] = oSketch8.SketchLines.AddByTwoPoints(point[7], point[0]);
             lines[8] = oSketch8.SketchLines.AddByTwoPoints(point[8], point[9]);
             oTrans["14. Втулка"].End();
-
-
             Profile oProfile8 = (Profile)oSketch8.Profiles.AddForSolid();
             RevolveFeature revolvefeature7 = oCompDef["14. Втулка"].Features.
             RevolveFeatures.AddFull(oProfile8, lines[8],
             PartFeatureOperationEnum.kJoinOperation);
-
             //фаски
             EdgeCollection EdgeCollection3 = ThisApplication.TransientObjects.CreateEdgeCollection();
             EdgeCollection3.Add(revolvefeature7.Faces[3].Edges[1]);
@@ -1766,11 +2077,11 @@ namespace InvAddIn
             Имя_нового_документа("17. Кольцо 55х48");
             oPartDoc["17. Кольцо 55х48"].DisplayName = "17. Кольцо 55х48";
             PlanarSketch oSketch11 = oCompDef["17. Кольцо 55х48"].Sketches.Add(oCompDef["17. Кольцо 55х48"].WorkPlanes[3]);
-            point[0] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(DOsn - 0.4 - 0.205, 0), false);
+            point[0] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(DKolca17, 0), false);
             point[1] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(0, 0), false);
             point[2] = oSketch11.SketchPoints.Add(oTransGeom["17. Кольцо 55х48"].CreatePoint2d(0, 2), false);
             lines[0] = oSketch11.SketchLines.AddByTwoPoints(point[1], point[2]);
-            Окружность[0] = oSketch11.SketchCircles.AddByCenterRadius(point[0], 0.205);
+            Окружность[0] = oSketch11.SketchCircles.AddByCenterRadius(point[0], dKolca17);
             oTrans["17. Кольцо 55х48"].End();
             Profile oProfile11 = (Profile)oSketch11.Profiles.AddForSolid();
             RevolveFeature revolvefeature10 = oCompDef["17. Кольцо 55х48"].Features.
@@ -1831,10 +2142,10 @@ namespace InvAddIn
             point[2] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.16, (HProbka - HRezbProbka) * 0.215), false);
             point[3] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.16, (HProbka - HRezbProbka) * 0.785), false);
             point[4] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DOsn * 1.01, HProbka - HRezbProbka), false);
-            point[5] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98, HProbka - HRezbProbka), false);
-            point[6] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98, HProbka - HRezbProbka + 0.05), false);
-            point[7] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98 - 0.05, HProbka - HRezbProbka + 0.05), false);
-            point[8] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap * 0.98 - 0.05, 0.953), false);
+            point[5] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKolca17-dKolca17+0.05, HProbka - HRezbProbka), false);
+            point[6] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKolca17 - dKolca17 + 0.05, HProbka - HRezbProbka + 0.05), false);
+            point[7] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKolca17 - dKolca17, HProbka - HRezbProbka + 0.05), false);
+            point[8] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKolca17 - dKolca17, 0.953), false);
             //point[9] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(2.394, 0.853), false);
             //point[10] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(2.323, 0.923), false);
             point[11] = oSketch13.SketchPoints.Add(oTransGeom["20. Пробка"].CreatePoint2d(DKlap, 1), false);
@@ -2102,12 +2413,12 @@ namespace InvAddIn
             Имя_нового_документа("6. Пружина");
             oPartDoc["6. Пружина"].DisplayName = "6. Пружина";
             PlanarSketch oSketch35 = oCompDef["6. Пружина"].Sketches.Add(oCompDef["6. Пружина"].WorkPlanes[3]);
-            point[0] = oSketch35.SketchPoints.Add(oTransGeom["6. Пружина"].CreatePoint2d(1.825, 0.35), false);
-            Окружность[0] = oSketch35.SketchCircles.AddByCenterRadius(point[0], 0.35);
+            point[0] = oSketch35.SketchPoints.Add(oTransGeom["6. Пружина"].CreatePoint2d(DPr6-dPr6, dPr6), false);
+            Окружность[0] = oSketch35.SketchCircles.AddByCenterRadius(point[0], dPr6);
             oTrans["6. Пружина"].End();
             Profile oProfile35 = (Profile)oSketch35.Profiles.AddForSolid();
             CoilFeature coil = oCompDef["6. Пружина"].Features.
-                CoilFeatures.AddByRevolutionAndHeight(oProfile35, oCompDef["6. Пружина"].WorkAxes[2], 4, 4.5,
+                CoilFeatures.AddByRevolutionAndHeight(oProfile35, oCompDef["6. Пружина"].WorkAxes[2], nPr6, HPr6-dPr6,
                     PartFeatureOperationEnum.kJoinOperation);
             PlanarSketch oSketch38 = oCompDef["6. Пружина"].Sketches.Add(oCompDef["6. Пружина"].WorkPlanes[2]);
             oTrans["6. Пружина"] = ThisApplication.TransactionManager.StartTransaction(
@@ -2126,12 +2437,12 @@ namespace InvAddIn
             Имя_нового_документа("7. Пружина");
             oPartDoc["7. Пружина"].DisplayName = "7. Пружина";
             PlanarSketch oSketch36 = oCompDef["7. Пружина"].Sketches.Add(oCompDef["7. Пружина"].WorkPlanes[3]);
-            point[0] = oSketch36.SketchPoints.Add(oTransGeom["7. Пружина"].CreatePoint2d(0.925, 0.15), false);
-            Окружность[0] = oSketch36.SketchCircles.AddByCenterRadius(point[0], 0.15);
+            point[0] = oSketch36.SketchPoints.Add(oTransGeom["7. Пружина"].CreatePoint2d(DPr7-dPr7, dPr7), false);
+            Окружность[0] = oSketch36.SketchCircles.AddByCenterRadius(point[0], dPr7);
             oTrans["7. Пружина"].End();
             Profile oProfile36 = (Profile)oSketch36.Profiles.AddForSolid();
             CoilFeature coil1 = oCompDef["7. Пружина"].Features.
-                CoilFeatures.AddByRevolutionAndHeight(oProfile36, oCompDef["7. Пружина"].WorkAxes[2], 7.5, 4.2,
+                CoilFeatures.AddByRevolutionAndHeight(oProfile36, oCompDef["7. Пружина"].WorkAxes[2], nPr7, HPr7-dPr7,
                     PartFeatureOperationEnum.kJoinOperation, ClockwiseRotation: true, FlatStartType: true, StartTransitionAngle: 90 + "degree",
                     StartFlatAngle: 0 + "degree", FlatEndType: true, EndTransitionAngle: 90 + "degree", EndFlatAngle: 90 + "degree");
             PlanarSketch oSketch39 = oCompDef["7. Пружина"].Sketches.Add(oCompDef["7. Пружина"].WorkPlanes[2]);
@@ -2150,12 +2461,12 @@ namespace InvAddIn
             Имя_нового_документа("18. Пружина");
             oPartDoc["18. Пружина"].DisplayName = "18. Пружина";
             PlanarSketch oSketch37 = oCompDef["18. Пружина"].Sketches.Add(oCompDef["18. Пружина"].WorkPlanes[3]);
-            point[0] = oSketch37.SketchPoints.Add(oTransGeom["18. Пружина"].CreatePoint2d(0.85, 0.1), false);
-            Окружность[0] = oSketch37.SketchCircles.AddByCenterRadius(point[0], 0.1);
+            point[0] = oSketch37.SketchPoints.Add(oTransGeom["18. Пружина"].CreatePoint2d(DPr18-dPr18, dPr18), false);
+            Окружность[0] = oSketch37.SketchCircles.AddByCenterRadius(point[0], dPr18);
             oTrans["18. Пружина"].End();
             Profile oProfile37 = (Profile)oSketch37.Profiles.AddForSolid();
             CoilFeature coil2 = oCompDef["18. Пружина"].Features.
-                CoilFeatures.AddByRevolutionAndHeight(oProfile37, oCompDef["18. Пружина"].WorkAxes[2], 6, 1.9,
+                CoilFeatures.AddByRevolutionAndHeight(oProfile37, oCompDef["18. Пружина"].WorkAxes[2], nPr18, HPr18- dPr18,
                     PartFeatureOperationEnum.kJoinOperation);
             PlanarSketch oSketch40 = oCompDef["18. Пружина"].Sketches.Add(oCompDef["18. Пружина"].WorkPlanes[2]);
             oTrans["18. Пружина"] = ThisApplication.TransactionManager.StartTransaction(
@@ -2202,6 +2513,28 @@ namespace InvAddIn
             DShtok = DShtok * 2 * 10;
             LShtok = LShtok * 10;
             LShtokRuchka = LShtokRuchka * 10;
+            HPr6 = HPr6 * 10;
+            DPr6 = DPr6 * 2 * 10;
+            dPr6 = dPr6 * 2 * 10;
+            HPr7 = HPr7 * 10;
+            DPr7 = DPr7 * 2 * 10;
+            dPr7 = dPr7 * 2 * 10;
+            HPr18 = HPr18 * 10;
+            DPr18 = DPr18 * 2 * 10;
+            dPr18 = dPr18 * 2 * 10;
+            DTar = DTar * 2 * 10;
+            HTar = HTar * 10;
+            hTar = hTar * 10;
+            d1Tar = d1Tar * 2 * 10;
+            d2Tar = d2Tar * 2 * 10;
+            DKolca17 = DKolca17 * 2 * 10;
+            dKolca17 = dKolca17 * 2 * 10;
+            DYpor = DYpor * 2 * 10;
+            HYpor = HYpor * 10;
+            d1Ypor = d1Ypor * 2 * 10;
+            d2Ypor = d2Ypor * 2 * 10;
+            h1Ypor = h1Ypor * 10;
+            h2Ypor = h2Ypor * 10;
         }
         private void Save_Model(string oPartDocName, string Text)
         {
