@@ -177,6 +177,16 @@ namespace InvAddIn
             this.comboBox61.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0" });
             comboBox62.Text = Convert.ToString(h2Ypor);
             this.comboBox62.Items.AddRange(new object[] { "5,0", "6,0", "7,0", "8,0", "9,0" });
+            comboBox63.Text = Convert.ToString(DOpor);
+            this.comboBox63.Items.AddRange(new object[] { "25,0", "20,0", "21,0", "22,0", "23,0", "24,0", "26,0", "27,0", "28,0", "29,0", "30,0" });
+            comboBox64.Text = Convert.ToString(HOpor);
+            this.comboBox64.Items.AddRange(new object[] { "8,0", "7,0", "9,0", "10,0", "11,0", "12,0", "13,0" });
+            comboBox65.Text = Convert.ToString(d1Opor);
+            this.comboBox65.Items.AddRange(new object[] { "12,0", "10,0", "11,0", "13,0", "14,0", "15,0", "16,0" });
+            comboBox66.Text = Convert.ToString(h1Opor);
+            this.comboBox66.Items.AddRange(new object[] { "2,0", "1,0", "3,0", "4,0", "5,0" });
+            comboBox67.Text = Convert.ToString(h2Opor);
+            this.comboBox67.Items.AddRange(new object[] { "3,5", "3,0", "4,0", "4,5", "5,0" });
         }
 
 
@@ -203,18 +213,18 @@ namespace InvAddIn
 
         }
 
-        private static double DGasPr = 20, DOsn = 63, DKlap = 48, RVtullka = 7.5, 
-            RVtullkaSmall = 5, DKolca = 80, DFlancaVnesh = 115, DFlancaVnutr = 90, 
-            HFlanca = 12, HKorp = 75, DOtvTr = 33.23, DOtvBolt = 8, HFlancaKr = 10, 
-            DVint = 16, ShirStKr = 5, HKr = 75, HGorlKr = 11, HVint = 63, 
-            HRezbVint = 37, DShtift = 8, HShtift = 75, HVtulka = 10,HYgol = 22, 
-            ShirYgol = 18, LYgol = 70, LTrYgol = 52, DKolco = 5.8, HProbka = 20, 
-            HRezbProbka = 14, DShtok = 5, LShtok = 65, LShtokRuchka = 15, 
+        private static double DGasPr = 20, DOsn = 63, DKlap = 48, RVtullka = 7.5,
+            RVtullkaSmall = 5, DKolca = 80, DFlancaVnesh = 115, DFlancaVnutr = 90,
+            HFlanca = 12, HKorp = 75, DOtvTr = 33.23, DOtvBolt = 8, HFlancaKr = 10,
+            DVint = 16, ShirStKr = 5, HKr = 75, HGorlKr = 11, HVint = 63,
+            HRezbVint = 37, DShtift = 8, HShtift = 75, HVtulka = 10, HYgol = 22,
+            ShirYgol = 18, LYgol = 70, LTrYgol = 52, DKolco = 5.8, HProbka = 20,
+            HRezbProbka = 14, DShtok = 5, LShtok = 65, LShtokRuchka = 15,
             HPr6 = 45, HPr7 = 42, HPr18 = 19, DPr6 = 43.5, DPr7 = 21.5, DPr18 = 19,
-            dPr6 = 7, dPr7 = 3, dPr18 = 2, nPr6 = 4, nPr7 = 7.5, nPr18 = 6, 
-            DTar = 58, HTar = 8, hTar = 5, d1Tar = 50, d2Tar = 22, DKolca17 = 50, 
-            dKolca17 = 4.1, DYpor = 40, HYpor = 12, d1Ypor = 25, d2Ypor = 21, h1Ypor = 8, 
-            h2Ypor = 5;
+            dPr6 = 7, dPr7 = 3, dPr18 = 2, nPr6 = 4, nPr7 = 7.5, nPr18 = 6,
+            DTar = 58, HTar = 8, hTar = 5, d1Tar = 50, d2Tar = 22, DKolca17 = 50,
+            dKolca17 = 4.1, DYpor = 40, HYpor = 12, d1Ypor = 25, d2Ypor = 21, h1Ypor = 8,
+            h2Ypor = 5, DOpor = 25 , HOpor = 8, d1Opor = 12, h1Opor= 2, h2Opor = 3.5;
 
         private void comboBox44_TextChanged(object sender, EventArgs e)
         {
@@ -253,6 +263,31 @@ namespace InvAddIn
             {
                 MessageBox.Show("Выберите значение меньше!");
             }
+        }
+
+        private void comboBox63_TextChanged(object sender, EventArgs e)
+        {
+            DOpor = Convert.ToDouble(comboBox63.Text);
+        }
+
+        private void comboBox64_TextChanged(object sender, EventArgs e)
+        {
+            HOpor = Convert.ToDouble(comboBox64.Text);
+        }
+
+        private void comboBox65_TextChanged(object sender, EventArgs e)
+        {
+            d1Opor = Convert.ToDouble(comboBox65.Text);
+        }
+
+        private void comboBox66_TextChanged(object sender, EventArgs e)
+        {
+            h1Opor = Convert.ToDouble(comboBox66.Text);
+        }
+
+        private void comboBox67_TextChanged(object sender, EventArgs e)
+        {
+            h2Opor = Convert.ToDouble(comboBox67.Text);
         }
 
         private void comboBox58_TextChanged(object sender, EventArgs e)
@@ -1324,6 +1359,11 @@ namespace InvAddIn
             d2Ypor = d2Ypor / 2 / 10;
             h1Ypor = h1Ypor / 10;
             h2Ypor = h2Ypor / 10;
+            DOpor = DOpor / 10 / 2;
+            HOpor = HOpor / 10;
+            d1Opor = d1Opor / 10 / 2;
+            h1Opor = h1Opor / 10;
+            h2Opor = h2Opor / 10;
 
 
             //Построение детали 1.Опора
@@ -1339,17 +1379,17 @@ namespace InvAddIn
 
             //Определение координат точек для твердотельного основания
             point[0] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0, 0), false);
-            point[1] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(1.15, 0), false);
-            point[2] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(1.15, 0.1), false);
-            point[3] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(1.15, 0.2), false);
-            point[4] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.7, 0.2), false);
-            point[5] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.7, 0.3), false);
-            point[6] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.6, 0.3), false);
-            point[7] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.6, 0.7), false);
-            point[8] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.5, 0.8), false);
-            point[9] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.3, 0.8), false);
-            point[10] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0.3, 0.45), false);
-            point[11] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0, 0.4), false);
+            point[1] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DOpor-h1Opor/2, 0), false);
+            point[2] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DOpor - h1Opor / 2, h1Opor/2), false);
+            point[3] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DOpor - h1Opor / 2, h1Opor), false);
+            point[4] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor+0.1, h1Opor), false);
+            point[5] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor+0.1, h1Opor+0.1), false);
+            point[6] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor, h1Opor + 0.1), false);
+            point[7] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor, HOpor-0.1), false);
+            point[8] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor-0.1, HOpor), false);
+            point[9] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok+0.5, HOpor), false);
+            point[10] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok + 0.5, HOpor-h2Opor), false);
+            point[11] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0, HOpor - h2Opor-0.5), false);
             //Построение замкнутого контура твердотельного основания
             lines[0] = oSketch.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch.SketchLines.AddByTwoPoints(point[3], point[4]);
@@ -2535,6 +2575,11 @@ namespace InvAddIn
             d2Ypor = d2Ypor * 2 * 10;
             h1Ypor = h1Ypor * 10;
             h2Ypor = h2Ypor * 10;
+            DOpor = DOpor * 10 * 2;
+            HOpor = HOpor * 10;
+            d1Opor = d1Opor * 10 * 2;
+            h1Opor = h1Opor * 10;
+            h2Opor = h2Opor * 10;
         }
         private void Save_Model(string oPartDocName, string Text)
         {

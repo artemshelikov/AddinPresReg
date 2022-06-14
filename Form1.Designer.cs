@@ -2433,6 +2433,7 @@
             this.comboBox67.Name = "comboBox67";
             this.comboBox67.Size = new System.Drawing.Size(55, 21);
             this.comboBox67.TabIndex = 63;
+            this.comboBox67.TextChanged += new System.EventHandler(this.comboBox67_TextChanged);
             // 
             // comboBox66
             // 
@@ -2443,6 +2444,7 @@
             this.comboBox66.Name = "comboBox66";
             this.comboBox66.Size = new System.Drawing.Size(55, 21);
             this.comboBox66.TabIndex = 62;
+            this.comboBox66.TextChanged += new System.EventHandler(this.comboBox66_TextChanged);
             // 
             // comboBox65
             // 
@@ -2453,6 +2455,7 @@
             this.comboBox65.Name = "comboBox65";
             this.comboBox65.Size = new System.Drawing.Size(55, 21);
             this.comboBox65.TabIndex = 61;
+            this.comboBox65.TextChanged += new System.EventHandler(this.comboBox65_TextChanged);
             // 
             // comboBox64
             // 
@@ -2463,6 +2466,7 @@
             this.comboBox64.Name = "comboBox64";
             this.comboBox64.Size = new System.Drawing.Size(55, 21);
             this.comboBox64.TabIndex = 60;
+            this.comboBox64.TextChanged += new System.EventHandler(this.comboBox64_TextChanged);
             // 
             // comboBox63
             // 
@@ -2473,6 +2477,7 @@
             this.comboBox63.Name = "comboBox63";
             this.comboBox63.Size = new System.Drawing.Size(55, 21);
             this.comboBox63.TabIndex = 59;
+            this.comboBox63.TextChanged += new System.EventHandler(this.comboBox63_TextChanged);
             // 
             // label69
             // 
