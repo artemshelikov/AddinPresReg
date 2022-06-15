@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 // Вставка библиотек
 using Inventor;
 using System.Diagnostics;
@@ -311,7 +312,7 @@ namespace InvAddIn
             {
                 MessageBox.Show("Некорректное значение! Выберите значение ,больше или измените параметры пружины 7!");
             }
-            if (d2Ypor > d1Ypor-4|| d2Ypor == d1Ypor-4)
+            if (d2Ypor > d1Ypor-4 || d2Ypor == d1Ypor-4)
             {
                 MessageBox.Show("Диаметр под пружину 7 не может быть больше диаметра под пружину 6!");
             }
@@ -1302,7 +1303,14 @@ namespace InvAddIn
         }
         private void button2_Click(object sender, EventArgs e)
         {
+            //DesignProject.WorkspasePath();
 
+            //DirectoryInfo dir = new DirectoryInfo("е:\\Регулятор давления\\");
+            //foreach (FileInfo f in dir.GetFiles())
+            //{
+            //    f.Delete();
+            //}
+            
 
             //Перевод размеров в см
             DGasPr = DGasPr / 2 / 10;
