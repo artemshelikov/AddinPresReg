@@ -171,9 +171,9 @@ namespace InvAddIn
             comboBox58.Text = Convert.ToString(HYpor);
             this.comboBox58.Items.AddRange(new object[] { "12,0", "9,0", "10,0", "11,0", "13,0", "14,0" });
             comboBox59.Text = Convert.ToString(d1Ypor);
-            this.comboBox59.Items.AddRange(new object[] { "25,0", "22,0", "23,0", "24,0", "26,0", "27,0", "28,0" });
+            this.comboBox59.Items.AddRange(new object[] { "26,0", "22,0", "23,0", "24,0", "25,0", "27,0", "28,0" });
             comboBox60.Text = Convert.ToString(d2Ypor);
-            this.comboBox60.Items.AddRange(new object[] { "21,0", "18,0", "19,0", "20,0", "22,0", "23,0", "24,0" });
+            this.comboBox60.Items.AddRange(new object[] { "22,0", "18,0", "19,0", "20,0", "21,0", "23,0", "24,0" });
             comboBox61.Text = Convert.ToString(h1Ypor);
             this.comboBox61.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0" });
             comboBox62.Text = Convert.ToString(h2Ypor);
@@ -188,6 +188,11 @@ namespace InvAddIn
             this.comboBox66.Items.AddRange(new object[] { "2,0", "1,0", "3,0", "4,0", "5,0" });
             comboBox67.Text = Convert.ToString(h2Opor);
             this.comboBox67.Items.AddRange(new object[] { "3,5", "3,0", "4,0", "4,5", "5,0" });
+
+            ThisApplication = (Inventor.Application)System.Runtime.InteropServices.
+                Marshal.GetActiveObject("Inventor.Application");
+            UIevents = ThisApplication.CommandManager.UserInputEvents;
+            UIevents.OnSelect += click;
         }
 
 
@@ -201,7 +206,7 @@ namespace InvAddIn
         {
             // Новый документ детали
             oPartDoc[Name] = (PartDocument)ThisApplication.Documents.Add(
-            DocumentTypeEnum.kPartDocumentObject, ThisApplication.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject));
+                DocumentTypeEnum.kPartDocumentObject, ThisApplication.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject));
             // Новое определение
             oCompDef[Name] = oPartDoc[Name].ComponentDefinition;
             // Выбор инструментов
@@ -224,7 +229,7 @@ namespace InvAddIn
             HPr6 = 45, HPr7 = 42, HPr18 = 19, DPr6 = 43.5, DPr7 = 21.5, DPr18 = 19,
             dPr6 = 7, dPr7 = 3, dPr18 = 2, nPr6 = 4, nPr7 = 7.5, nPr18 = 6,
             DTar = 58, HTar = 8, hTar = 5, d1Tar = 50, d2Tar = 22, DKolca17 = 50,
-            dKolca17 = 4.1, DYpor = 40, HYpor = 12, d1Ypor = 25, d2Ypor = 21, h1Ypor = 8,
+            dKolca17 = 4.1, DYpor = 40, HYpor = 12, d1Ypor = 26, d2Ypor = 22, h1Ypor = 8,
             h2Ypor = 5, DOpor = 25 , HOpor = 8, d1Opor = 12, h1Opor= 2, h2Opor = 3.5;
 
         private void comboBox44_TextChanged(object sender, EventArgs e)
@@ -312,7 +317,7 @@ namespace InvAddIn
             {
                 MessageBox.Show("Некорректное значение! Выберите значение ,больше или измените параметры пружины 7!");
             }
-            if (d2Ypor > d1Ypor-4 || d2Ypor == d1Ypor-4)
+            if (d2Ypor > d1Ypor-4)
             {
                 MessageBox.Show("Диаметр под пружину 7 не может быть больше диаметра под пружину 6!");
             }
@@ -481,6 +486,11 @@ namespace InvAddIn
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog FBD = new FolderBrowserDialog();
+            if (FBD.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(FBD.SelectedPath);
+            }
             AssemblyDocument oAssDoc = (AssemblyDocument)ThisApplication.Documents.Add(
                 DocumentTypeEnum.kAssemblyDocumentObject, ThisApplication.FileManager.GetTemplateFile(
                     DocumentTypeEnum.kAssemblyDocumentObject));
@@ -506,9 +516,9 @@ namespace InvAddIn
 
             //Вставка в сборку корпуса
             ComponentOccurrence Korpus_Model = oAssDoc.ComponentDefinition.
-                Occurrences.Add(oFileName["13. Корпус"], oPositionMatrix);
+                Occurrences.Add(FBD.SelectedPath + "\\13. Корпус.ipt", oPositionMatrix);
             //Вставка в сборку пробки
-            ComponentOccurrence Probka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["20. Пробка"], oPositionMatrix);
+            ComponentOccurrence Probka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\20. Пробка.ipt", oPositionMatrix);
             //Сопряжение корпуса и пробки
             oFace1 = Korpus_Model.SurfaceBodies[1].Faces[74];
             oFace2 = Probka_Model.SurfaceBodies[1].Faces[27];
@@ -518,12 +528,11 @@ namespace InvAddIn
             Поверхность1 = oAssCompDef.Constraints.AddMateConstraint(oFace1, oFace2, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             Поверхность2 = oAssCompDef.Constraints.AddMateConstraint(oFace3, oFace4, 0.4, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку кольца
-            ComponentOccurrence Kolco17_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["17. Кольцо 55х48"], oPositionMatrix);
+            ComponentOccurrence Kolco17_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\17. Кольцо 55х48.ipt", oPositionMatrix);
             //Вставка в сборку клапана
-            ComponentOccurrence Klapan_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["19. Клапан"], oPositionMatrix);
+            ComponentOccurrence Klapan_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\19. Клапан.ipt", oPositionMatrix);
             //Вставка в сборку Крышки
-            ComponentOccurrence Krishka_Model = oAssDoc.
-                ComponentDefinition.Occurrences.Add(oFileName["8. Крышка"], oPositionMatrix);
+            ComponentOccurrence Krishka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\8. Крышка.ipt", oPositionMatrix);
             //Сопряжение корпуса и крышки
             oFace27 = Korpus_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Korpus_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -580,7 +589,7 @@ namespace InvAddIn
             oFace10 = Klapan_Model.SurfaceBodies[1].Faces[8];
             Поверхность5 = oAssCompDef.Constraints.AddMateConstraint(oFace9, oFace10, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку диафрагмы
-            ComponentOccurrence Diafragma_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["11. Диафрагма"], oPositionMatrix);
+            ComponentOccurrence Diafragma_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\11. Диафрагма.ipt", oPositionMatrix);
             //Сопряжение крышки и диафрагмы
             oFace29 = Diafragma_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Diafragma_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -595,7 +604,7 @@ namespace InvAddIn
             oFace14 = Diafragma_Model.SurfaceBodies[1].Faces[3];
             Поверхность7 = oAssCompDef.Constraints.AddMateConstraint(oFace12, oFace14, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку тарелки
-            ComponentOccurrence Tarelka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["10. Тарелка"], oPositionMatrix);
+            ComponentOccurrence Tarelka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\10. Тарелка.ipt", oPositionMatrix);
             //Сопряжение диафрагмы и тарелки
             oFace30 = Tarelka_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Tarelka_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -610,7 +619,7 @@ namespace InvAddIn
             oFace13 = Tarelka_Model.SurfaceBodies[1].Faces[13];
             Поверхность8 = oAssCompDef.Constraints.AddMateConstraint(oFace14, oFace13, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку опоры
-            ComponentOccurrence Opora_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["1. Опора"], oPositionMatrix);
+            ComponentOccurrence Opora_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\1. Опора.ipt", oPositionMatrix);
             //Сопряжение диафрагмы и опоры
             oFace31 = Opora_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Opora_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -626,7 +635,7 @@ namespace InvAddIn
             oFace16 = Opora_Model.SurfaceBodies[1].Faces[9];
             Поверхность9 = oAssCompDef.Constraints.AddMateConstraint(oFace15, oFace16, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //вставка в сборку упора
-            ComponentOccurrence Ypor_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["5. Упор"], oPositionMatrix);
+            ComponentOccurrence Ypor_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\5. Упор.ipt", oPositionMatrix);
             //Сопряжение крышки и упора
             oFace32 = Ypor_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Ypor_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -642,7 +651,7 @@ namespace InvAddIn
             oFace18 = Ypor_Model.SurfaceBodies[1].Faces[9];
             Поверхность10 = oAssCompDef.Constraints.AddMateConstraint(oFace17, oFace18, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку втулки
-            ComponentOccurrence Vtylka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["14. Втулка"], oPositionMatrix);
+            ComponentOccurrence Vtylka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\14. Втулка.ipt", oPositionMatrix);
             //Сопряжение корпуса и втулки
             oFace33 = Vtylka_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Vtylka_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -658,7 +667,7 @@ namespace InvAddIn
             oFace20 = Vtylka_Model.SurfaceBodies[1].Faces[11];
             Поверхность11 = oAssCompDef.Constraints.AddMateConstraint(oFace19, oFace20, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку прокладки
-            ComponentOccurrence Prokladka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["16. Прокладка"], oPositionMatrix);
+            ComponentOccurrence Prokladka_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\16. Прокладка.ipt", oPositionMatrix);
             //Сопряжение клапана и прокладки
             oFace8 = Prokladka_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Kolco17_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -674,7 +683,7 @@ namespace InvAddIn
             oFace22 = Prokladka_Model.SurfaceBodies[1].Faces[2];
             Поверхность12 = oAssCompDef.Constraints.AddMateConstraint(oFace21, oFace22, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку Шайбы
-            ComponentOccurrence Shaiba_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["21. Шайба"], oPositionMatrix);
+            ComponentOccurrence Shaiba_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\21. Шайба.ipt", oPositionMatrix);
             //Сопряжение прокладки и шайбы
             oFace35 = Shaiba_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Kolco17_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -690,7 +699,7 @@ namespace InvAddIn
             oFace24 = Shaiba_Model.SurfaceBodies[1].Faces[2];
             Поверхность13 = oAssCompDef.Constraints.AddMateConstraint(oFace23, oFace24, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку Штока
-            ComponentOccurrence Shtok_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["15. Шток"], oPositionMatrix);
+            ComponentOccurrence Shtok_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\15. Шток.ipt", oPositionMatrix);
             //Сопряжение прокладки и штока
             oFace36 = Shtok_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Shtok_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -706,7 +715,7 @@ namespace InvAddIn
             oFace26 = Shtok_Model.SurfaceBodies[1].Faces[6];
             Поверхность14 = oAssCompDef.Constraints.AddMateConstraint(oFace25, oFace26, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку Винта
-            ComponentOccurrence Vint_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["3. Винт"], oPositionMatrix);
+            ComponentOccurrence Vint_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\3. Винт.ipt", oPositionMatrix);
             //Сопряжение корпуса и винта
 
             oFace37 = Vint_Model.SurfaceBodies[1].Faces[1];
@@ -739,7 +748,7 @@ namespace InvAddIn
             }
             Поверхность27 = oAssCompDef.Constraints.AddInsertConstraint(oFace38, oFace39, false, -HGorlKr / 10);
             //Вставка в сборку Штифта
-            ComponentOccurrence Shtift_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["4. Штифт"], oPositionMatrix);
+            ComponentOccurrence Shtift_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\4. Штифт.ipt", oPositionMatrix);
             //Сопряжение винта и штифта
             oFace40 = Vint_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Vint_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -763,7 +772,7 @@ namespace InvAddIn
             Поверхность28 = oAssCompDef.Constraints.AddMateConstraint(oFace40, oFace41, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             Поверхность29 = oAssCompDef.Constraints.AddMateConstraint(oFace39, oFace42, -HShtift / 2 / 10 + DShtift / 10, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredPoint);
             //Вставка в сборку угольника
-            ComponentOccurrence Ygolnik_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["22. Угольник"], oPositionMatrix);
+            ComponentOccurrence Ygolnik_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\22. Угольник.ipt", oPositionMatrix);
             //Сопряжение Корпуса и угольника
             oFace42 = Korpus_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Korpus_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -785,7 +794,7 @@ namespace InvAddIn
             }
             Поверхность30 = oAssCompDef.Constraints.AddInsertConstraint(oFace42, oFace43, true, 1.6);
             //Вставка в сборку кольца
-            ComponentOccurrence Kolco12_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["12. Кольцо 80х70"], oPositionMatrix);
+            ComponentOccurrence Kolco12_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\12. Кольцо 80х70.ipt", oPositionMatrix);
             //Сопряжение корпуса и кольца 12
             oFace44 = Kolco12_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Kolco12_Model.SurfaceBodies[1].Faces.Count; i++)
@@ -809,7 +818,7 @@ namespace InvAddIn
             oFace6 = Kolco12_Model.SurfaceBodies[1].Faces[1];
             Поверхность3 = oAssCompDef.Constraints.AddMateConstraint(oFace45, oFace6, 0.29, InferredTypeEnum.kNoInference, InferredTypeEnum.kInferredPoint);
             //Вставка в сборку Пробки 23
-            ComponentOccurrence Probka23_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["23. Пробка"], oPositionMatrix);
+            ComponentOccurrence Probka23_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\23. Пробка.ipt", oPositionMatrix);
             oFace46 = Korpus_Model.SurfaceBodies[1].Faces[1];
             for (int i = 1; i <= Korpus_Model.SurfaceBodies[1].Faces.Count; i++)
             {
@@ -830,7 +839,7 @@ namespace InvAddIn
             }
             Поверхность4 = oAssCompDef.Constraints.AddInsertConstraint(oFace46, oFace47, true, -1.6);
             //Вставка в сборку Пружины 6
-            ComponentOccurrence Pruzhina6_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["6. Пружина"], oPositionMatrix);
+            ComponentOccurrence Pruzhina6_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\6. Пружина.ipt", oPositionMatrix);
             oFace50 = Pruzhina6_Model.SurfaceBodies[1].Edges[1] as Face;
             for (int i = 1; i <= Pruzhina6_Model.SurfaceBodies[1].Faces.Count; i++)
             {
@@ -871,7 +880,7 @@ namespace InvAddIn
             Поверхность33 = oAssCompDef.Constraints.AddMateConstraint(oFace51, oFace50, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             Поверхность32 = oAssCompDef.Constraints.AddMateConstraint(oFace48, oFace49, -0.01, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку Пружины 7
-            ComponentOccurrence Pruzhina7_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["7. Пружина"], oPositionMatrix);
+            ComponentOccurrence Pruzhina7_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\7. Пружина.ipt", oPositionMatrix);
             oFace52 = Pruzhina7_Model.SurfaceBodies[1].Edges[1] as Face;
             for (int i = 1; i <= Pruzhina7_Model.SurfaceBodies[1].Faces.Count; i++)
             {
@@ -902,7 +911,7 @@ namespace InvAddIn
             Поверхность34 = oAssCompDef.Constraints.AddMateConstraint(oFace51, oFace52, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             Поверхность35 = oAssCompDef.Constraints.AddMateConstraint(oFace54, oFace55, -0.01, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             //Вставка в сборку Пружины 18
-            ComponentOccurrence Pruzhina18_Model = oAssDoc.ComponentDefinition.Occurrences.Add(oFileName["18. Пружина"], oPositionMatrix);
+            ComponentOccurrence Pruzhina18_Model = oAssDoc.ComponentDefinition.Occurrences.Add(FBD.SelectedPath + "\\18. Пружина.ipt", oPositionMatrix);
             oFace53 = Pruzhina18_Model.SurfaceBodies[1].Edges[1] as Face;
             for (int i = 1; i <= Pruzhina18_Model.SurfaceBodies[1].Faces.Count; i++)
             {
@@ -943,6 +952,8 @@ namespace InvAddIn
             Поверхность36 = oAssCompDef.Constraints.AddMateConstraint(oFace56, oFace53, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             Поверхность37 = oAssCompDef.Constraints.AddMateConstraint(oFace57, oFace58, -0.01, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
             MessageBox.Show("Сборка завершена!");
+            oAssemblyDocName = oAssDoc;
+
         }
 
         private void comboBox30_TextChanged(object sender, EventArgs e)
@@ -958,7 +969,7 @@ namespace InvAddIn
         private void button4_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "Inventor Assembly Document|*.iam";
-            saveFileDialog1.Title = "Сохранить сборку";
+            saveFileDialog1.Title = Text;
             saveFileDialog1.FileName = oAssemblyDocName.DisplayName;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -1301,6 +1312,7 @@ namespace InvAddIn
                 }
             }
         }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             //DesignProject.WorkspasePath();
@@ -1373,6 +1385,16 @@ namespace InvAddIn
             h1Opor = h1Opor / 10;
             h2Opor = h2Opor / 10;
 
+            FolderBrowserDialog FBD = new FolderBrowserDialog();
+            if (FBD.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(FBD.SelectedPath);
+            }
+            DirectoryInfo dir = new DirectoryInfo(FBD.SelectedPath);
+            foreach (FileInfo f in dir.GetFiles())
+            {
+                f.Delete();
+            }
 
             //Построение детали 1.Опора
             //Объявление локальных переменных
@@ -1395,9 +1417,9 @@ namespace InvAddIn
             point[6] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor, h1Opor + 0.1), false);
             point[7] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor, HOpor-0.1), false);
             point[8] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(d1Opor-0.1, HOpor), false);
-            point[9] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok+0.5, HOpor), false);
-            point[10] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok + 0.5, HOpor-h2Opor), false);
-            point[11] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0, HOpor - h2Opor-0.5), false);
+            point[9] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok+0.05, HOpor), false);
+            point[10] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(DShtok + 0.05, HOpor-h2Opor), false);
+            point[11] = oSketch.SketchPoints.Add(oTransGeom["1. Опора"].CreatePoint2d(0, HOpor - h2Opor-0.05), false);
             //Построение замкнутого контура твердотельного основания
             lines[0] = oSketch.SketchLines.AddByTwoPoints(point[0], point[1]);
             lines[1] = oSketch.SketchLines.AddByTwoPoints(point[3], point[4]);
@@ -1419,7 +1441,9 @@ namespace InvAddIn
             RevolveFeature revolvefeature = oCompDef["1. Опора"].Features.
             RevolveFeatures.AddFull(oProfile, lines[7],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("1. Опора", "1. Опора");
+            oFileName["1. Опора"] = "1. Опора";
+            oPartDoc["1. Опора"].SaveAs(FBD.SelectedPath + "\\1. Опора.ipt", false);
+            //Save_Model("1. Опора", "1. Опора");
 
 
             //Построение детали 13. Корпус
@@ -1677,7 +1701,8 @@ namespace InvAddIn
             objCollection1.Add(oExtrudeDef9);
             CircularPatternFeature CircularPatternFeature = oCompDef["13. Корпус"].Features.CircularPatternFeatures.Add(objCollection1, Axis,
                 false, 6, 360 + "degree", true, PatternComputeTypeEnum.kIdenticalCompute);
-            Save_Model("13. Корпус", "Сохранить модель 13. Корпус");
+            oFileName["13. Корпус"] = "13. Корпус";
+            oPartDoc["13. Корпус"].SaveAs(FBD.SelectedPath + "\\13. Корпус.ipt", false);
 
             Имя_нового_документа("8. Крышка");
             oPartDoc["8. Крышка"].DisplayName = "8. Крышка";
@@ -1793,7 +1818,7 @@ namespace InvAddIn
             objCollection2.Add(oExtrudeDef12);
             CircularPatternFeature CircularPatternFeature1 = oCompDef["8. Крышка"].Features.CircularPatternFeatures.Add(objCollection2, Axis1,
                 false, 6, 360 + "degree", true, PatternComputeTypeEnum.kIdenticalCompute);
-            Save_Model("8. Крышка", "Сохранить модель 8. Крышка");
+            oPartDoc["8. Крышка"].SaveAs(FBD.SelectedPath + "\\8. Крышка.ipt", false);
 
             //EdgeCollection EdgeCollection16 = ThisApplication.TransientObjects.CreateEdgeCollection();
             //FilletFeature oFillet4 = default(FilletFeature);
@@ -1871,7 +1896,7 @@ namespace InvAddIn
             "ISO Metric profile", "M16x1.25", "6g");
             ThreadInfo ThreadInfo = (ThreadInfo)stInfo;
             ThreadFeatures.Add(Face, StartEdge_1, ThreadInfo, false, false, HRezbVint + " см", 0);
-            Save_Model("3. Винт", "Сохранить модель 3. Винт");
+            oPartDoc["3. Винт"].SaveAs(FBD.SelectedPath + "\\3. Винт.ipt", false);
 
             //Построение детали 4. Штифт
             Имя_нового_документа("4. Штифт");
@@ -1894,7 +1919,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature2 = oCompDef["4. Штифт"].Features.
             RevolveFeatures.AddFull(oProfile3, lines[1],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("4. Штифт", "Сохранить модель 4. Штифт");
+            oPartDoc["4. Штифт"].SaveAs(FBD.SelectedPath + "\\4. Штифт.ipt", false);
 
             //Построение детали 5. Упор
             Имя_нового_документа("5. Упор");
@@ -1948,7 +1973,7 @@ namespace InvAddIn
             FilletDefinition oFilletDef1 = oCompDef["5. Упор"].Features.FilletFeatures.CreateFilletDefinition();
             oFilletDef1.AddConstantRadiusEdgeSet(EdgeCollection1, 1 + "мм");
             oFillet = oCompDef["5. Упор"].Features.FilletFeatures.Add(oFilletDef1, false);
-            Save_Model("5. Упор", "Сохранить модель 5. Упор");
+            oPartDoc["5. Упор"].SaveAs(FBD.SelectedPath + "\\5. Упор.ipt", false);
 
             //Построение детали 10.Тарелка
             Имя_нового_документа("10. Тарелка");
@@ -1989,7 +2014,7 @@ namespace InvAddIn
             EdgeCollection2.Add(revolvefeature4.Faces[5].Edges[1]);
             EdgeCollection2.Add(revolvefeature4.Faces[7].Edges[2]);
             oCompDef["10. Тарелка"].Features.ChamferFeatures.AddUsingDistance(EdgeCollection2, 0.5 + "мм", true);
-            Save_Model("10. Тарелка", "Сохранить модель 10. Тарелка");
+            oPartDoc["10. Тарелка"].SaveAs(FBD.SelectedPath + "\\10. Тарелка.ipt", false);
 
             //Построение детали 11. Диафрагма
             Имя_нового_документа("11. Диафрагма");
@@ -2008,7 +2033,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature5 = oCompDef["11. Диафрагма"].Features.
             RevolveFeatures.AddFull(oProfile6, lines[3],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("11. Диафрагма", "Сохранить модель 11. Диафрагма");
+            oPartDoc["11. Диафрагма"].SaveAs(FBD.SelectedPath + "\\11. Диафрагма.ipt", false);
 
             //Построение детали 12. Кольцо 80х70
             Имя_нового_документа("12. Кольцо 80х70");
@@ -2024,7 +2049,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature6 = oCompDef["12. Кольцо 80х70"].Features.
             RevolveFeatures.AddFull(oProfile7, lines[0],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("12. Кольцо 80х70", "Сохранить модель 12. Кольцо 80х70");
+            oPartDoc["12. Кольцо 80х70"].SaveAs(FBD.SelectedPath + "\\12. Кольцо 80х70.ipt", false);
             //Построение детали 14. Втулка
             Имя_нового_документа("14. Втулка");
             oPartDoc["14. Втулка"].DisplayName = "14. Втулка";
@@ -2061,7 +2086,7 @@ namespace InvAddIn
             EdgeCollection EdgeCollection4 = ThisApplication.TransientObjects.CreateEdgeCollection();
             EdgeCollection4.Add(revolvefeature7.Faces[3].Edges[1]);
             oCompDef["14. Втулка"].Features.ChamferFeatures.AddUsingDistance(EdgeCollection4, 0.5 + "мм", true);
-            Save_Model("14. Втулка", "Сохранить модель 14. Втулка");
+            oPartDoc["14. Втулка"].SaveAs(FBD.SelectedPath + "\\14. Втулка.ipt", false);
             //Построение детали 15. Шток
             Имя_нового_документа("15. Шток");
             oPartDoc["15. Шток"].DisplayName = "15. Шток";
@@ -2099,7 +2124,7 @@ namespace InvAddIn
             FilletDefinition oFilletDef2 = oCompDef["15. Шток"].Features.FilletFeatures.CreateFilletDefinition();
             oFilletDef2.AddConstantRadiusEdgeSet(EdgeCollection5, DShtok + "см");
             oFillet1 = oCompDef["15. Шток"].Features.FilletFeatures.Add(oFilletDef2, false);
-            Save_Model("15. Шток", "Сохранить модель 15. Шток");
+            oPartDoc["15. Шток"].SaveAs(FBD.SelectedPath + "\\15. Шток.ipt", false);
             //Построение детали 16. Прокладка
             Имя_нового_документа("16. Прокладка");
             oPartDoc["16. Прокладка"].DisplayName = "16. Прокладка";
@@ -2120,7 +2145,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature9 = oCompDef["16. Прокладка"].Features.
             RevolveFeatures.AddFull(oProfile10, lines[4],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("16. Прокладка", "Сохранить модель 16. Прокладка");
+            oPartDoc["16. Прокладка"].SaveAs(FBD.SelectedPath + "\\16. Прокладка.ipt", false);
             //Построение детали 17. Кольцо 55х48
             Имя_нового_документа("17. Кольцо 55х48");
             oPartDoc["17. Кольцо 55х48"].DisplayName = "17. Кольцо 55х48";
@@ -2135,7 +2160,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature10 = oCompDef["17. Кольцо 55х48"].Features.
             RevolveFeatures.AddFull(oProfile11, lines[0],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("17. Кольцо 55х48", "Сохранить модель 17. Кольцо 55х48");
+            oPartDoc["17. Кольцо 55х48"].SaveAs(FBD.SelectedPath + "\\17. Кольцо 55х48.ipt", false);
 
             //Построение детали 19. Клапан
             Имя_нового_документа("19. Клапан");
@@ -2180,7 +2205,7 @@ namespace InvAddIn
             FilletDefinition oFilletDef3 = oCompDef["19. Клапан"].Features.FilletFeatures.CreateFilletDefinition();
             oFilletDef3.AddConstantRadiusEdgeSet(EdgeCollection8, 0.5 + "мм");
             oFillet2 = oCompDef["19. Клапан"].Features.FilletFeatures.Add(oFilletDef3, false);
-            Save_Model("19. Клапан", "Сохранить модель 19. Клапан");
+            oPartDoc["19. Клапан"].SaveAs(FBD.SelectedPath + "\\19. Клапан.ipt", false);
             //Построение детали 20. Пробка
             Имя_нового_документа("20. Пробка");
             oPartDoc["20. Пробка"].DisplayName = "20. Пробка";
@@ -2265,7 +2290,7 @@ namespace InvAddIn
             /*Эскиз*/oProfile14,/*Длина в см*/HProbka - HRezbProbka,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kNegativeExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kCutOperation,/*Эскиз*/oProfile14);
-            Save_Model("20. Пробка", "Сохранить модель 20. Пробка");
+            oPartDoc["20. Пробка"].SaveAs(FBD.SelectedPath + "\\20. Пробка.ipt", false);
 
             //Построение детали 21. Шайба
             Имя_нового_документа("21. Шайба");
@@ -2287,7 +2312,7 @@ namespace InvAddIn
             RevolveFeature revolvefeature13 = oCompDef["21. Шайба"].Features.
             RevolveFeatures.AddFull(oProfile15, lines[0],
             PartFeatureOperationEnum.kJoinOperation);
-            Save_Model("21. Шайба", "Сохранить модель 21. Шайба");
+            oPartDoc["21. Шайба"].SaveAs(FBD.SelectedPath + "\\21. Шайба.ipt", false);
             //Построение детали 22. Угольник
             Имя_нового_документа("22. Угольник");
             oPartDoc["22. Угольник"].DisplayName = "22. Угольник";
@@ -2406,7 +2431,7 @@ namespace InvAddIn
             //"ISO Taper External", "R1/8", "");
             //ThreadInfo ThreadInfo3 = (ThreadInfo)stInfo4;
             //ThreadFeatures3.Add(Face2, StartEdge_5, ThreadInfo3, false, true);
-            Save_Model("22. Угольник", "Сохранить модель 22. Угольник");
+            oPartDoc["22. Угольник"].SaveAs(FBD.SelectedPath + "\\22. Угольник.ipt", false);
 
             //Построение детали 23. Пробка
             Имя_нового_документа("23. Пробка");
@@ -2455,7 +2480,7 @@ namespace InvAddIn
             //TaperedThreadInfo stInfo3 = (TaperedThreadInfo)ThreadFeatures3.CreateThreadInfo(false, true, "NPT", "R1/8");
             //TaperedThreadInfo ThreadInfo3 = stInfo3;
             //ThreadFeatures3.CreateThreadInfo.ThreadInfo3(Face4, StartEdge_5, ThreadInfo3, false, true);
-            Save_Model("23. Пробка", "Сохранить модель 23. Пробка");
+            oPartDoc["23. Пробка"].SaveAs(FBD.SelectedPath + "\\23. Пробка.ipt", false);
 
             //Создание детали 6. Пружина
             Имя_нового_документа("6. Пружина");
@@ -2479,7 +2504,7 @@ namespace InvAddIn
             /*Эскиз*/oProfile38,/*Длина в см*/0.01,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kNegativeExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kJoinOperation,/*Эскиз*/oProfile38);
-            Save_Model("6. Пружина", "Сохранить модель 6. Пружина");
+            oPartDoc["6. Пружина"].SaveAs(FBD.SelectedPath + "\\6. Пружина.ipt", false);
 
             //Создание детали 7. Пружина
             Имя_нового_документа("7. Пружина");
@@ -2504,7 +2529,7 @@ namespace InvAddIn
             /*Эскиз*/oProfile39,/*Длина в см*/0.01,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kNegativeExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kJoinOperation,/*Эскиз*/oProfile39);
-            Save_Model("7. Пружина", "Сохранить модель 7. Пружина");
+            oPartDoc["7. Пружина"].SaveAs(FBD.SelectedPath + "\\7. Пружина.ipt", false);
             //Создание детали 18. Пружина
             Имя_нового_документа("18. Пружина");
             oPartDoc["18. Пружина"].DisplayName = "18. Пружина";
@@ -2527,7 +2552,7 @@ namespace InvAddIn
             /*Эскиз*/oProfile40,/*Длина в см*/0.01,/*Направление вдоль оси*/
             PartFeatureExtentDirectionEnum.kNegativeExtentDirection,
             /*Операция*/PartFeatureOperationEnum.kJoinOperation,/*Эскиз*/oProfile40);
-            Save_Model("18. Пружина", "Сохранить модель 18. Пружина");
+            oPartDoc["18. Пружина"].SaveAs(FBD.SelectedPath + "\\18. Пружина.ipt", false);
             MessageBox.Show("Создание деталей завершено!", "Сообщение");
             //Перевод размеров в мм
             DGasPr = DGasPr * 2 * 10;
@@ -2589,6 +2614,10 @@ namespace InvAddIn
             h1Opor = h1Opor * 10;
             h2Opor = h2Opor * 10;
         }
+
+        
+
+
         private void Save_Model(string oPartDocName, string Text)
         {
             saveFileDialog1.Filter = "Inventor Part Document|*.ipt";
