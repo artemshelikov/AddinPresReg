@@ -73,15 +73,15 @@ namespace InvAddIn
             comboBox8.Text = Convert.ToString(RVtullkaSmall);
             this.comboBox8.Items.AddRange(new object[] { "5,0", "5,5", "6,0", "6,5", "7,0", "7,5" });
             comboBox9.Text = Convert.ToString(HFlanca);
-            this.comboBox9.Items.AddRange(new object[] { "12,0", "15,0", "18,0", "20,0" });
+            this.comboBox9.Items.AddRange(new object[] { "12,0", "15,0" });
             comboBox10.Text = Convert.ToString(DOtvTr);
             this.comboBox10.Items.AddRange(new object[] { "33,23", "25,57", "21,224" });
             comboBox11.Text = Convert.ToString(DOtvBolt);
-            this.comboBox11.Items.AddRange(new object[] { "8,0", "9,0", "10,0", "11,0", "12,0", "14,0" });
+            this.comboBox11.Items.AddRange(new object[] { "8,0",  "10,0",  "12,0", "14,0" });
             comboBox12.Text = Convert.ToString(HFlancaKr);
-            this.comboBox12.Items.AddRange(new object[] { "10,0", "11,0", "12,0", "13,0" });
+            this.comboBox12.Items.AddRange(new object[] { "10,0", "11,0" });
             comboBox13.Text = Convert.ToString(DVint);
-            this.comboBox13.Items.AddRange(new object[] { "16,0", "14,0", "15,0", "17,0", "18,0", "20,0" });
+            this.comboBox13.Items.AddRange(new object[] { "16,0", "14,0", "18,0", "20,0"});
             comboBox14.Text = Convert.ToString(ShirStKr);
             this.comboBox14.Items.AddRange(new object[] { "5,0", "4,0", "6,0", "7,0" });
             comboBox15.Text = Convert.ToString(HKr);
@@ -296,6 +296,11 @@ namespace InvAddIn
             h2Opor = Convert.ToDouble(comboBox67.Text);
         }
 
+        private void label70_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBox58_TextChanged(object sender, EventArgs e)
         {
             HYpor = Convert.ToDouble(comboBox58.Text);
@@ -504,15 +509,17 @@ namespace InvAddIn
                 oFace22, oFace23, oFace24, oFace25, oFace26, oFace27, oFace28, oFace29, oFace30, oFace31,
                 oFace32, oFace33, oFace34, oFace35, oFace36, oFace37, oFace38, oFace39, oFace40, oFace41, 
                 oFace42, oFace43, oFace44, oFace45, oFace46, oFace47, oFace48, oFace49, oFace50, oFace51, 
-                oFace52, oFace53, oFace54, oFace55, oFace56, oFace57, oFace58, oFace59;
+                oFace52, oFace53, oFace54, oFace55, oFace56, oFace57, oFace58, oFace59, oFace60, oFace61,
+                oFace62, oFace63, oFace64;
             //Переменные для сопряжений
             MateConstraint Поверхность1, Поверхность2, Поверхность3, Поверхность5, Поверхность6, 
                 Поверхность7, Поверхность8, Поверхность9,Поверхность10, Поверхность11, Поверхность12, 
                 Поверхность13, Поверхность14, Поверхность15, Поверхность16, Поверхность17, Поверхность18,
                 Поверхность19, Поверхность20, Поверхность21, Поверхность22, Поверхность23, Поверхность24, 
-                Поверхность25, Поверхность26, Поверхность28,Поверхность29, Поверхность31, Поверхность32, 
-                Поверхность33, Поверхность34, Поверхность35, Поверхность36, Поверхность37;
-            InsertConstraint Поверхность27, Поверхность30, Поверхность4;
+                Поверхность25, Поверхность26, Поверхность28,Поверхность29,  Поверхность32, 
+                Поверхность33, Поверхность34, Поверхность35, Поверхность36, Поверхность37, Поверхность38,
+                Поверхность39;
+            InsertConstraint Поверхность27, Поверхность30, Поверхность4, Поверхность31;
 
             //Вставка в сборку корпуса
             ComponentOccurrence Korpus_Model = oAssDoc.ComponentDefinition.
@@ -951,6 +958,369 @@ namespace InvAddIn
             }
             Поверхность36 = oAssCompDef.Constraints.AddMateConstraint(oFace56, oFace53, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
             Поверхность37 = oAssCompDef.Constraints.AddMateConstraint(oFace57, oFace58, -0.01, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
+
+
+            Inventor.ContentCenter oContentCenter = ThisApplication.ContentCenter; //получаем ссылку на ContentCenter
+            Inventor.ContentTreeViewNode oContentNode = default;
+            Inventor.ContentTreeViewNode oContentNode1 = default;
+            oContentNode1 = oContentCenter.TreeViewTopNode.ChildNodes["Крепежные изделия"].ChildNodes["Болты  Винты"].ChildNodes["С углублением под ключ"];
+
+            long AllPoint1, NowPoint1;    //этими переменными реализован счётчик количества строк в библиотеке
+            NowPoint1 = 0;
+
+            foreach (Inventor.ContentFamily oFamily in oContentNode1.Families)//тут бегаем по семействам в папке/подпапке узла
+            {
+                AllPoint1 = oFamily.TableRows.Count;
+                if (oFamily.DisplayName == "Винт ГОСТ 11738-84")
+                {
+                    foreach (Inventor.ContentTableRow ContTableRow in oFamily.TableRows)//тут бегаем по строкам таблицы
+                    {
+                        NowPoint1 += 1;
+                        if (DOtvBolt == 8)
+                        {
+                            if (NowPoint1 == 50)
+                            {
+                                
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem1 = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Vint = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem1, oPositionMatrix);//создание вхождения
+
+                                oFace63 = Krishka_Model.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{F8100852-5D1F-2F02-EE30-478330D05BB0}")
+                                    {
+                                        oFace63 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace64 = Vint.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Vint.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint.SurfaceBodies[1].Faces[i].InternalName == "{C330C981-36E8-CEDA-7982-6347B0894ECF}")
+                                    {
+                                        oFace64 = Vint.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность31 = oAssCompDef.Constraints.AddInsertConstraint(oFace64, oFace63, true, 0);
+
+                                ObjectCollection objCollectionVint = ThisApplication.TransientObjects.CreateObjectCollection();
+                                objCollectionVint.Add(Vint);
+                                CircularOccurrencePattern CircPat;
+                                CircPat = oAssCompDef.OccurrencePatterns.AddCircularPattern(objCollectionVint, oAssCompDef.WorkAxes[2], true, 60+"degree", 6);
+                            }
+                        }
+                        if (DOtvBolt == 10)
+                        {
+                            if (NowPoint1 == 80)
+                            {
+                                
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem1 = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Vint = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem1, oPositionMatrix);//создание вхождения
+                                oFace63 = Krishka_Model.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{F8100852-5D1F-2F02-EE30-478330D05BB0}")
+                                    {
+                                        oFace63 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace64 = Vint.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Vint.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint.SurfaceBodies[1].Faces[i].InternalName == "{C330C981-36E8-CEDA-7982-6347B0894ECF}")
+                                    {
+                                        oFace64 = Vint.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность31 = oAssCompDef.Constraints.AddInsertConstraint(oFace64, oFace63, true, 0);
+
+                                ObjectCollection objCollectionVint = ThisApplication.TransientObjects.CreateObjectCollection();
+                                objCollectionVint.Add(Vint);
+                                CircularOccurrencePattern CircPat;
+                                CircPat = oAssCompDef.OccurrencePatterns.AddCircularPattern(objCollectionVint, oAssCompDef.WorkAxes[2], true, 60 + "degree", 6);
+                            }
+                        }
+                        if (DOtvBolt == 12)
+                        {
+                            if (NowPoint1 == 111)
+                            {
+                                
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem1 = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Vint = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem1, oPositionMatrix);//создание вхождения
+
+                            }
+                        }
+                        if (DOtvBolt == 14)
+                        {
+                            if (NowPoint1 == 144)
+                            {
+                                
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem1 = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Vint = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem1, oPositionMatrix);//создание вхождения
+                                oFace63 = Krishka_Model.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{F8100852-5D1F-2F02-EE30-478330D05BB0}")
+                                    {
+                                        oFace63 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace64 = Vint.SurfaceBodies[1].Faces[1];
+                                for (int i = 1; i <= Vint.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint.SurfaceBodies[1].Faces[i].InternalName == "{C330C981-36E8-CEDA-7982-6347B0894ECF}")
+                                    {
+                                        oFace64 = Vint.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность31 = oAssCompDef.Constraints.AddInsertConstraint(oFace64, oFace63, true, 0);
+
+                                ObjectCollection objCollectionVint = ThisApplication.TransientObjects.CreateObjectCollection();
+                                objCollectionVint.Add(Vint);
+                                CircularOccurrencePattern CircPat;
+                                CircPat = oAssCompDef.OccurrencePatterns.AddCircularPattern(objCollectionVint, oAssCompDef.WorkAxes[2], true, 60 + "degree", 6);
+                            }
+                        }
+                    }
+                }
+            }
+
+            oContentNode = oContentCenter.TreeViewTopNode.ChildNodes["Крепежные изделия"].ChildNodes["Гайки"].ChildNodes["Шестигранные"];
+
+            //ComponentOccurrence Gaika = oAssDoc.ComponentDefinition.Occurrences.Add(oContentNode, oPositionMatrix);
+
+            long AllPoint, NowPoint;    //этими переменными реализован счётчик количества строк в библиотеке
+            NowPoint = 0;
+
+            foreach (Inventor.ContentFamily oFamily in oContentNode.Families)//тут бегаем по семействам в папке/подпапке узла
+            {
+                
+                if (oFamily.DisplayName == "Гайка ГОСТ 2526-70")
+                {
+                    foreach (Inventor.ContentTableRow ContTableRow in oFamily.TableRows)//тут бегаем по строкам таблицы
+                    {
+                        NowPoint += 1;
+                        if (DVint == 16) { 
+                        if (NowPoint == 10) { 
+                        var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                        Inventor.MemberManagerErrorsEnum failureCM = default;
+                        string MessageProbl = "You_have_a_Problem";
+                        var CreateMem = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                        ComponentOccurrence Gaika = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem, oPositionMatrix);//создание вхождения
+
+                            oFace59 = Krishka_Model.SurfaceBodies[1].Edges[1] as Face;
+                            for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                            {
+                                if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{2E716E67-D9C4-A22F-9519-083F5E7AA48B}")
+                                {
+                                    oFace59 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                    break;
+                                }
+                            }
+                            oFace60 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                            for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                            {
+                                if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{0F6E14BD-07B3-0DAA-966D-7B80E83827B8}")
+                                {
+                                    oFace60 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                    break;
+                                }
+                            }
+                            oFace61 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                            for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                            {
+                                if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{C5765F4A-308D-0C09-9A9F-A80F2E6B92D4}")
+                                {
+                                    oFace61 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                    break;
+                                }
+                            }
+                            oFace62 = Vint_Model.SurfaceBodies[1].Edges[1] as Face;
+                            for (int i = 1; i <= Vint_Model.SurfaceBodies[1].Faces.Count; i++)
+                            {
+                                if (Vint_Model.SurfaceBodies[1].Faces[i].InternalName == "{99F2EE8C-853D-EA0D-A959-7565D1DAAAA9}")
+                                {
+                                    oFace62 = Vint_Model.SurfaceBodies[1].Faces[i] as Face;
+                                    break;
+                                }
+                            }
+                            Поверхность38 = oAssCompDef.Constraints.AddMateConstraint(oFace59, oFace60, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
+                            Поверхность39 = oAssCompDef.Constraints.AddMateConstraint(oFace61, oFace62, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
+                        }
+                        }
+                        if (DVint == 14)
+                        {
+                            if (NowPoint == 8)
+                            {
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Gaika = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem, oPositionMatrix);//создание вхождения
+
+                                oFace59 = Krishka_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{2E716E67-D9C4-A22F-9519-083F5E7AA48B}")
+                                    {
+                                        oFace59 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace60 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{0F6E14BD-07B3-0DAA-966D-7B80E83827B8}")
+                                    {
+                                        oFace60 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace61 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{C5765F4A-308D-0C09-9A9F-A80F2E6B92D4}")
+                                    {
+                                        oFace61 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace62 = Vint_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Vint_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint_Model.SurfaceBodies[1].Faces[i].InternalName == "{99F2EE8C-853D-EA0D-A959-7565D1DAAAA9}")
+                                    {
+                                        oFace62 = Vint_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность38 = oAssCompDef.Constraints.AddMateConstraint(oFace59, oFace60, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
+                                Поверхность39 = oAssCompDef.Constraints.AddMateConstraint(oFace61, oFace62, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
+                            }
+                        }
+                        if (DVint == 18)
+                        {
+                            if (NowPoint == 12)
+                            {
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Gaika = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem, oPositionMatrix);//создание вхождения
+
+                                oFace59 = Krishka_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{2E716E67-D9C4-A22F-9519-083F5E7AA48B}")
+                                    {
+                                        oFace59 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace60 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{0F6E14BD-07B3-0DAA-966D-7B80E83827B8}")
+                                    {
+                                        oFace60 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace61 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{C5765F4A-308D-0C09-9A9F-A80F2E6B92D4}")
+                                    {
+                                        oFace61 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace62 = Vint_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Vint_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint_Model.SurfaceBodies[1].Faces[i].InternalName == "{99F2EE8C-853D-EA0D-A959-7565D1DAAAA9}")
+                                    {
+                                        oFace62 = Vint_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность38 = oAssCompDef.Constraints.AddMateConstraint(oFace59, oFace60, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
+                                Поверхность39 = oAssCompDef.Constraints.AddMateConstraint(oFace61, oFace62, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
+                            }
+                        }
+                        if (DVint == 20)
+                        {
+                            if (NowPoint == 14)
+                            {
+                                var ContTableRow_Designation = ContTableRow.GetCellValue("DESIGNATION");
+                                Inventor.MemberManagerErrorsEnum failureCM = default;
+                                string MessageProbl = "You_have_a_Problem";
+                                var CreateMem = oFamily.CreateMember(ContTableRow, out failureCM, out MessageProbl);
+                                ComponentOccurrence Gaika = oAssDoc.ComponentDefinition.Occurrences.Add(CreateMem, oPositionMatrix);//создание вхождения
+
+                                oFace59 = Krishka_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Krishka_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Krishka_Model.SurfaceBodies[1].Faces[i].InternalName == "{2E716E67-D9C4-A22F-9519-083F5E7AA48B}")
+                                    {
+                                        oFace59 = Krishka_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace60 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{0F6E14BD-07B3-0DAA-966D-7B80E83827B8}")
+                                    {
+                                        oFace60 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace61 = Gaika.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Gaika.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Gaika.SurfaceBodies[1].Faces[i].InternalName == "{C5765F4A-308D-0C09-9A9F-A80F2E6B92D4}")
+                                    {
+                                        oFace61 = Gaika.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                oFace62 = Vint_Model.SurfaceBodies[1].Edges[1] as Face;
+                                for (int i = 1; i <= Vint_Model.SurfaceBodies[1].Faces.Count; i++)
+                                {
+                                    if (Vint_Model.SurfaceBodies[1].Faces[i].InternalName == "{99F2EE8C-853D-EA0D-A959-7565D1DAAAA9}")
+                                    {
+                                        oFace62 = Vint_Model.SurfaceBodies[1].Faces[i] as Face;
+                                        break;
+                                    }
+                                }
+                                Поверхность38 = oAssCompDef.Constraints.AddMateConstraint(oFace59, oFace60, 0, InferredTypeEnum.kNoInference, InferredTypeEnum.kNoInference);
+                                Поверхность39 = oAssCompDef.Constraints.AddMateConstraint(oFace61, oFace62, 0, InferredTypeEnum.kInferredLine, InferredTypeEnum.kInferredLine);
+                            }
+                        }
+
+                    }
+                }
+            }
+            
+
             MessageBox.Show("Сборка завершена!");
             oAssemblyDocName = oAssDoc;
 
